@@ -22,11 +22,7 @@ export class HomeComponent implements OnInit {
   totalCourses = 50;
   totalStudents = 900;
   totalSatisfiedClients = 3675;
-
   selectedCourse = "all";
-
-
-
 
 
   customOptionsStudents: OwlOptions = {
@@ -39,20 +35,8 @@ export class HomeComponent implements OnInit {
     navText: ['', ''],
     autoplay: true,
     nav: true,
-    responsive: {
-      0: {
-        items: 1
-      },
-      400: {
-        items: 3
-      },
-      740: {
-        items: 3
-      },
-      940: {
-        items: 3
-      }
-    }
+    items: 3,
+    rewind: true
     
   }
 
@@ -66,20 +50,7 @@ export class HomeComponent implements OnInit {
     navText: ['', ''],
     autoplay: true,
     nav: true,
-    responsive: {
-      0: {
-        items: 1
-      },
-      400: {
-        items: 2
-      },
-      740: {
-        items: 2
-      },
-      940: {
-        items: 2
-      }
-    }
+    rewind: true   
     
   }
 
@@ -93,20 +64,8 @@ export class HomeComponent implements OnInit {
     navText: ['', ''],
     autoplay: true,
     nav: true,
-    responsive: {
-      0: {
-        items: 1
-      },
-      400: {
-        items: 5
-      },
-      740: {
-        items: 5
-      },
-      940: {
-        items: 5
-      }
-    }
+    items: 5,
+    rewind: true
     
   }
 
@@ -134,7 +93,7 @@ export class HomeComponent implements OnInit {
      }else if(height < window.innerHeight + 100 ){
       this.hide = true;
      }
-
+     console.log(window.innerWidth)
      const configuratorContainer = document.getElementById('vvvvvvvvvvvvv') as HTMLElement;
 	   let offset = configuratorContainer.getBoundingClientRect().top;
 
