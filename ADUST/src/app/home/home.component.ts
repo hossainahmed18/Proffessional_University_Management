@@ -23,22 +23,49 @@ export class HomeComponent implements OnInit {
   totalStudents = 900;
   totalSatisfiedClients = 3675;
 
-  check: Record<string,number>={
-    value: 10
-};
- 
+  selectedCourse = "all";
 
 
 
-  customOptions: OwlOptions = {
+
+
+  customOptionsStudents: OwlOptions = {
     loop: true,
     mouseDrag: true,
     touchDrag: false,
-    pullDrag: false,
+    pullDrag: true,
     dots: false,
-    navSpeed: 700,
+    navSpeed: 100,
     navText: ['', ''],
     autoplay: true,
+    nav: true,
+    responsive: {
+      0: {
+        items: 1
+      },
+      400: {
+        items: 3
+      },
+      740: {
+        items: 3
+      },
+      940: {
+        items: 3
+      }
+    }
+    
+  }
+
+  customOptionsTopManage: OwlOptions = {
+    loop: true,
+    mouseDrag: true,
+    touchDrag: false,
+    pullDrag: true,
+    dots: false,
+    navSpeed: 100,
+    navText: ['', ''],
+    autoplay: true,
+    nav: true,
     responsive: {
       0: {
         items: 1
@@ -52,8 +79,35 @@ export class HomeComponent implements OnInit {
       940: {
         items: 2
       }
-    },
-    nav: true
+    }
+    
+  }
+
+  customOptionsPartners: OwlOptions = {
+    loop: true,
+    mouseDrag: true,
+    touchDrag: false,
+    pullDrag: true,
+    dots: false,
+    navSpeed: 100,
+    navText: ['', ''],
+    autoplay: true,
+    nav: true,
+    responsive: {
+      0: {
+        items: 1
+      },
+      400: {
+        items: 5
+      },
+      740: {
+        items: 5
+      },
+      940: {
+        items: 5
+      }
+    }
+    
   }
 
   ngOnInit(): void {
@@ -61,21 +115,25 @@ export class HomeComponent implements OnInit {
     this.animcourses = 0;
     this.animSatisfiedClients = 0;
     this.animStudents = 0;
-    console.log(Object.keys(this.check));
+    this.selectedCourse = 'all';
   }
 
   GoToTop(){
     window.scrollTo(0,0);
   }
+
+  changeSelectedCourse(courseName:string){
+      this.selectedCourse = courseName;
+  }
+
   @HostListener('window:scroll', ['$event']) // for window scroll events
   onScroll(event: any) {
      let height = document.documentElement.scrollTop;
-     if(height > 1000){
+     if(height > window.innerHeight + 100){
        this.hide = false;
-     }else if(height <300 ){
+     }else if(height < window.innerHeight + 100 ){
       this.hide = true;
      }
-
 
      const configuratorContainer = document.getElementById('vvvvvvvvvvvvv') as HTMLElement;
 	   let offset = configuratorContainer.getBoundingClientRect().top;
@@ -83,8 +141,6 @@ export class HomeComponent implements OnInit {
      if(offset < 300 && this.animteachers == 0){
         this.addCounter();
      }
-
-
   }
 
 

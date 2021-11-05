@@ -1,4 +1,4 @@
-<body class="home1" id="body" >
+<body class="home1" id="body">
 
     <div class="full-width-header">
 
@@ -101,7 +101,7 @@
                                         </li>
                                     </ul>
                                 </nav>
-                                
+
                             </div>
                         </div>
                     </div>
@@ -449,7 +449,7 @@
                     </p>
                 </div>
                 <div class="col-lg-8 col-md-12">
-                    <owl-carousel-o class="rs-carousel" [options]="customOptions" #owlCar>
+                    <owl-carousel-o class="rs-carousel" [options]="customOptionsTopManage" #owlCar>
                         <ng-template carouselSlide>
                             <div class="team-item">
                                 <div class="team-img">
@@ -503,18 +503,13 @@
                             </div>
                         </ng-template>
 
-                    </owl-carousel-o> 
+                    </owl-carousel-o>
 
                     <div class="owl-carousel rs-navigation-2" style="display: block !important;">
                         <div class="owl-controls">
                             <div class="owl-nav">
-                                <div class="owl-prev" style=""><i class="fa fa-angle-left" (click)="owlCar.prev()">
-
-                                    </i></div>
-                                <div class="owl-next" style=""><i class="fa fa-angle-right" (click)="owlCar.next()"></i></div>
-                            </div>
-                            <div class="owl-dots" style="">
-                                <div class="owl-dot active"><span></span></div>
+                                <div class="owl-prev" (click)="owlCar.prev()"><i class="fa fa-angle-left"></i></div>
+                                <div class="owl-next" (click)="owlCar.next()"><i class="fa fa-angle-right"></i></div>
                             </div>
                         </div>
                     </div>
@@ -569,153 +564,165 @@
                 </div>
             </div>
             <div class="gridFilter">
-                <button class="active" data-filter="*">ALL</button>
-                <button data-filter=".filter1">ENGINEERING & TECHNOLOGY</button>
-                <button data-filter=".filter2">BUSINESS</button>
-                <button data-filter=".filter3">ARTS & SOCIAL SCIENCES</button>
-                <button data-filter=".filter3">HEALTH SCIENCES</button>
-                <button data-filter=".filter3">LAW</button>
-                <button data-filter=".filter3">EVENING/DIPLOMA</button>
+                <button [ngClass]="{'active': selectedCourse === 'all'}" (click)="this.selectedCourse = 'all'" data-filter="*" >ALL</button>
+                <button data-filter=".filter1" [ngClass]="{'active': selectedCourse === 'ENG-TECH'}" (click)="this.selectedCourse = 'ENG-TECH'">ENGINEERING & TECHNOLOGY</button>
+                <button data-filter=".filter2" [ngClass]="{'active': selectedCourse === 'BUSINESS'}" (click)="this.selectedCourse = 'BUSINESS'" >BUSINESS</button>
+                <button data-filter=".filter3" [ngClass]="{'active': selectedCourse === 'ARTS'}" (click)="this.selectedCourse = 'ARTS'">ARTS & SOCIAL SCIENCES</button>
+                <button data-filter=".filter3" [ngClass]="{'active': selectedCourse === 'HEALTH'}" (click)="this.selectedCourse = 'HEALTH'">HEALTH SCIENCES</button>
+                <button data-filter=".filter3" [ngClass]="{'active': selectedCourse === 'LAW'}" (click)="this.selectedCourse = 'LAW'">LAW</button>
+                <button data-filter=".filter3" [ngClass]="{'active': selectedCourse === 'EVENING'}" (click)="this.selectedCourse = 'EVENING'">EVENING/DIPLOMA</button>
             </div>
             <div class="row grid">
-                <div class="col-lg-4 col-md-6 grid-item filter1 filter3">
-                    <div class="cource-item">
-                        <div class="cource-img">
-                            <img src="assets/images/courses/eee.jpg" alt="" />
-                            <a class="image-link" href="courses-details.html" title="University Tour 2018">
-                                <i class="fa fa-link"></i>
-                            </a>
-                        </div>
-                        <div class="course-body">
-                            <a href="#" class="course-category">ENGINEERING & TECHNOLOGY</a>
-                            <h4 class="course-title"><a href="courses-details.html">B.Sc. in EEE</a></h4>
-                            <div class="course-desc">
-                                <p>
-                                    The curriculum of all its programs intend to equip students with
-                                    knowledge which not only deepen their understanding of
-                                    fundamental science and its application in various engineering
-                                    fields of Power, Electronics, Communication and Computing...
-                                </p>
+                <ng-container *ngIf="selectedCourse == 'all' ||selectedCourse == 'ENG-TECH'">
+                    <div class="col-lg-4 col-md-6 grid-item filter1 filter3">
+                        <div class="cource-item">
+                            <div class="cource-img">
+                                <img src="assets/images/courses/eee.jpg" alt="" />
+                                <a class="image-link" href="courses-details.html" title="University Tour 2018">
+                                    <i class="fa fa-link"></i>
+                                </a>
                             </div>
-                            <a href="#" class="cource-btn">Apply Now</a>
+                            <div class="course-body">
+                                <a href="#" class="course-category">ENGINEERING & TECHNOLOGY</a>
+                                <h4 class="course-title"><a href="courses-details.html">B.Sc. in EEE</a></h4>
+                                <div class="course-desc">
+                                    <p>
+                                        The curriculum of all its programs intend to equip students with
+                                        knowledge which not only deepen their understanding of
+                                        fundamental science and its application in various engineering
+                                        fields of Power, Electronics, Communication and Computing...
+                                    </p>
+                                </div>
+                                <a href="#" class="cource-btn">Apply Now</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6 grid-item filter1">
-                    <div class="cource-item">
-                        <div class="cource-img">
-                            <img src="assets/images/courses/cse.jpg" alt="" />
-                            <a class="image-link" href="courses-details.html" title="University Tour 2018">
-                                <i class="fa fa-link"></i>
-                            </a>
-                        </div>
-                        <div class="course-body">
-                            <a href="#" class="course-category">ENGINEERING & TECHNOLOGY</a>
-                            <h4 class="course-title"><a href="courses-details.html">B.Sc. in CSE</a></h4>
-                            <div class="course-desc">
-                                <p>
-                                    The curriculum of all its programs intend to equip students with
-                                    knowledge which not only deepen their understanding of
-                                    fundamental science and its application in various engineering
-                                    fields of Power, Electronics, Communication and Computing...
-                                </p>
+                    <div class="col-lg-4 col-md-6 grid-item filter1">
+                        <div class="cource-item">
+                            <div class="cource-img">
+                                <img src="assets/images/courses/cse.jpg" alt="" />
+                                <a class="image-link" href="courses-details.html" title="University Tour 2018">
+                                    <i class="fa fa-link"></i>
+                                </a>
                             </div>
-                            <a href="#" class="cource-btn">Apply Now</a>
+                            <div class="course-body">
+                                <a href="#" class="course-category">ENGINEERING & TECHNOLOGY</a>
+                                <h4 class="course-title"><a href="courses-details.html">B.Sc. in CSE</a></h4>
+                                <div class="course-desc">
+                                    <p>
+                                        The curriculum of all its programs intend to equip students with
+                                        knowledge which not only deepen their understanding of
+                                        fundamental science and its application in various engineering
+                                        fields of Power, Electronics, Communication and Computing...
+                                    </p>
+                                </div>
+                                <a href="#" class="cource-btn">Apply Now</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6 grid-item filter3">
-                    <div class="cource-item">
-                        <div class="cource-img">
-                            <img src="assets/images/courses/ETE.jpg" alt="" />
-                            <a class="image-link" href="courses-details.html" title="University Tour 2018">
-                                <i class="fa fa-link"></i>
-                            </a>
-                        </div>
-                        <div class="course-body">
-                            <a href="#" class="course-category">ENGINEERING & TECHNOLOGY</a>
-                            <h4 class="course-title"><a href="#">B.Sc. in ETE</a></h4>
-                            <div class="course-desc">
-                                <p>
-                                    The curriculum of all its programs intend to equip students with
-                                    knowledge which not only deepen their understanding of
-                                    fundamental science and its application in various engineering
-                                    fields of Power, Electronics, Communication and Computing...
-                                </p>
+                    <div class="col-lg-4 col-md-6 grid-item filter3">
+                        <div class="cource-item">
+                            <div class="cource-img">
+                                <img src="assets/images/courses/ETE.jpg" alt="" />
+                                <a class="image-link" href="courses-details.html" title="University Tour 2018">
+                                    <i class="fa fa-link"></i>
+                                </a>
                             </div>
-                            <a href="#" class="cource-btn">Apply Now</a>
+                            <div class="course-body">
+                                <a href="#" class="course-category">ENGINEERING & TECHNOLOGY</a>
+                                <h4 class="course-title"><a href="#">B.Sc. in ETE</a></h4>
+                                <div class="course-desc">
+                                    <p>
+                                        The curriculum of all its programs intend to equip students with
+                                        knowledge which not only deepen their understanding of
+                                        fundamental science and its application in various engineering
+                                        fields of Power, Electronics, Communication and Computing...
+                                    </p>
+                                </div>
+                                <a href="#" class="cource-btn">Apply Now</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6 grid-item filter3 filter4">
-                    <div class="cource-item">
-                        <div class="cource-img">
-                            <img src="assets/images/courses/csi.jpg" alt="" />
-                            <a class="image-link" href="courses-details.html" title="University Tour 2018">
-                                <i class="fa fa-link"></i>
-                            </a>
-                        </div>
-                        <div class="course-body">
-                            <a href="#" class="course-category">ENGINEERING & TECHNOLOGY</a>
-                            <h4 class="course-title"><a href="#">B.Sc. in CSI</a></h4>
-                            <div class="course-desc">
-                                <p>
-                                    The curriculum of all its programs intend to equip students with
-                                    knowledge which not only deepen their understanding of
-                                    fundamental science and its application in various engineering
-                                    fields of Power, Electronics, Communication and Computing...
-                                </p>
+                    <div class="col-lg-4 col-md-6 grid-item filter3 filter4">
+                        <div class="cource-item">
+                            <div class="cource-img">
+                                <img src="assets/images/courses/csi.jpg" alt="" />
+                                <a class="image-link" href="courses-details.html" title="University Tour 2018">
+                                    <i class="fa fa-link"></i>
+                                </a>
                             </div>
-                            <a href="#" class="cource-btn">Apply Now</a>
+                            <div class="course-body">
+                                <a href="#" class="course-category">ENGINEERING & TECHNOLOGY</a>
+                                <h4 class="course-title"><a href="#">B.Sc. in CSI</a></h4>
+                                <div class="course-desc">
+                                    <p>
+                                        The curriculum of all its programs intend to equip students with
+                                        knowledge which not only deepen their understanding of
+                                        fundamental science and its application in various engineering
+                                        fields of Power, Electronics, Communication and Computing...
+                                    </p>
+                                </div>
+                                <a href="#" class="cource-btn">Apply Now</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6 grid-item filter2">
-                    <div class="cource-item">
-                        <div class="cource-img">
-                            <img src="assets/images/courses/textile.jpg" alt="" />
-                            <a class="image-link" href="courses-details.html" title="University Tour 2018">
-                                <i class="fa fa-link"></i>
-                            </a>
-                        </div>
-                        <div class="course-body">
-                            <a href="#" class="course-category">ENGINEERING & TECHNOLOGY</a>
-                            <h4 class="course-title"><a href="#">B.Sc. in Textile Engineering</a></h4>
-                            <div class="course-desc">
-                                <p>
-                                    The curriculum of all its programs intend to equip students with
-                                    knowledge which not only deepen their understanding of
-                                    fundamental science and its application in various engineering
-                                    fields of Power, Electronics, Communication and Computing...
-                                </p>
+                    
+                </ng-container>
+
+
+                <ng-container *ngIf="selectedCourse == 'all' ||selectedCourse == 'BUSINESS'">
+                    <div class="col-lg-4 col-md-6 grid-item filter2">
+                        <div class="cource-item">
+                            <div class="cource-img">
+                                <img src="assets/images/courses/textile.jpg" alt="" />
+                                <a class="image-link" href="courses-details.html" title="University Tour 2018">
+                                    <i class="fa fa-link"></i>
+                                </a>
                             </div>
-                            <a href="#" class="cource-btn">Apply Now</a>
+                            <div class="course-body">
+                                <a href="#" class="course-category">ENGINEERING & TECHNOLOGY</a>
+                                <h4 class="course-title"><a href="#">B.Sc. in Textile Engineering</a></h4>
+                                <div class="course-desc">
+                                    <p>
+                                        The curriculum of all its programs intend to equip students with
+                                        knowledge which not only deepen their understanding of
+                                        fundamental science and its application in various engineering
+                                        fields of Power, Electronics, Communication and Computing...
+                                    </p>
+                                </div>
+                                <a href="#" class="cource-btn">Apply Now</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6 grid-item filter2 filter4">
-                    <div class="cource-item">
-                        <div class="cource-img">
-                            <img src="assets/images/courses/Civil.jpg" alt="" />
-                            <a class="image-link" href="courses-details.html" title="University Tour 2018">
-                                <i class="fa fa-link"></i>
-                            </a>
-                        </div>
-                        <div class="course-body">
-                            <a href="#" class="course-category">ENGINEERING & TECHNOLOGY</a>
-                            <h4 class="course-title"><a href="#">Civil Engineering</a></h4>
-                            <div class="course-desc">
-                                <p>
-                                    The curriculum of all its programs intend to equip students with
-                                    knowledge which not only deepen their understanding of
-                                    fundamental science and its application in various engineering
-                                    fields of Power, Electronics, Communication and Computing...
-                                </p>
+                    <div class="col-lg-4 col-md-6 grid-item filter2 filter4">
+                        <div class="cource-item">
+                            <div class="cource-img">
+                                <img src="assets/images/courses/Civil.jpg" alt="" />
+                                <a class="image-link" href="courses-details.html" title="University Tour 2018">
+                                    <i class="fa fa-link"></i>
+                                </a>
                             </div>
-                            <a href="#" class="cource-btn">Apply Now</a>
+                            <div class="course-body">
+                                <a href="#" class="course-category">ENGINEERING & TECHNOLOGY</a>
+                                <h4 class="course-title"><a href="#">Civil Engineering</a></h4>
+                                <div class="course-desc">
+                                    <p>
+                                        The curriculum of all its programs intend to equip students with
+                                        knowledge which not only deepen their understanding of
+                                        fundamental science and its application in various engineering
+                                        fields of Power, Electronics, Communication and Computing...
+                                    </p>
+                                </div>
+                                <a href="#" class="cource-btn">Apply Now</a>
+                            </div>
                         </div>
                     </div>
-                </div>
+    
+    
+                </ng-container>
+               
+
+
             </div>
         </div>
     </div>
@@ -787,118 +794,112 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <div class="rs-carousel owl-carousel" data-loop="true" data-items="3" data-margin="30"
-                        data-autoplay="true" data-autoplay-timeout="5000" data-smart-speed="1200" data-dots="false"
-                        data-nav="true" data-nav-speed="false" data-mobile-device="1" data-mobile-device-nav="true"
-                        data-mobile-device-dots="false" data-ipad-device="2" data-ipad-device-nav="true"
-                        data-ipad-device-dots="false" data-md-device="3" data-md-device-nav="true"
-                        data-md-device-dots="false">
-
-                        <div class="testimonial-style3">
-                            <div class="image">
-                                <img src="assets/images/testimonial/allumni-salman.png" alt="">
-                            </div>
-                            <h5 class="title">Salman Hossain, PhD</h5>
-                            <p class="description">
-                                Lorem Ipsum is simply dummy text of the printing and
-                                typesetting industry. Lorem Ipsum has been the industry's
-                                standard dummy text ever since the 1500s, when an
-                                unknown printer took a galley of type and scrambled it to
-                                make a type specimen book.
-                            </p>
-                            <div class="testimonial-content">
-                                <div class="testimonial-profile">
-                                    <h3 class="name">Scientist</h3>
-                                    <span class="post">Food & Drug Administratin, USA</span>
+                    <owl-carousel-o class="rs-carousel" [options]="customOptionsStudents" #owlCar>
+                        <ng-template carouselSlide>
+                            <div class="testimonial-style3">
+                                <div class="image">
+                                    <img src="assets/images/testimonial/allumni-salman.png" alt="">
+                                </div>
+                                <h5 class="title">Salman Hossain, PhD</h5>
+                                <p class="description">
+                                    Lorem Ipsum is simply dummy text of the printing and
+                                    typesetting industry. Lorem Ipsum has been the industry's
+                                    standard dummy text ever since the 1500s, when an
+                                    unknown printer took a galley of type and scrambled it to
+                                    make a type specimen book.
+                                </p>
+                                <div class="testimonial-content">
+                                    <div class="testimonial-profile">
+                                        <h3 class="name">Scientist</h3>
+                                        <span class="post">Food & Drug Administratin, USA</span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="testimonial-style3">
-                            <div class="image">
-                                <img src="assets/images/testimonial/allumni-saiful.png" alt="">
-                            </div>
-                            <h5 class="title">Saifur Rahman, PhD</h5>
-                            <p class="description">
-                                Lorem Ipsum is simply dummy text of the printing and
-                                typesetting industry. Lorem Ipsum has been the industry's
-                                standard dummy text ever since the 1500s, when an
-                                unknown printer took a galley of type and scrambled it to
-                                make a type specimen book.
-                            </p>
-                            <div class="testimonial-content">
-                                <div class="testimonial-profile">
-                                    <h3 class="name">Research Fellow</h3>
-                                    <span class="post">University of Michigan, USA</span>
+                        </ng-template>
+                        <ng-template carouselSlide>
+                            <div class="testimonial-style3">
+                                <div class="image">
+                                    <img src="assets/images/testimonial/allumni-saiful.png" alt="">
+                                </div>
+                                <h5 class="title">Saifur Rahman, PhD</h5>
+                                <p class="description">
+                                    Lorem Ipsum is simply dummy text of the printing and
+                                    typesetting industry. Lorem Ipsum has been the industry's
+                                    standard dummy text ever since the 1500s, when an
+                                    unknown printer took a galley of type and scrambled it to
+                                    make a type specimen book.
+                                </p>
+                                <div class="testimonial-content">
+                                    <div class="testimonial-profile">
+                                        <h3 class="name">Research Fellow</h3>
+                                        <span class="post">University of Michigan, USA</span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="testimonial-style3">
-                            <div class="image">
-                                <img src="assets/images/testimonial/allumni-mizan.png" alt="">
-                            </div>
-                            <h5 class="title">Md. Mizanur Rahman Akhand</h5>
-                            <p class="description">
-                                Lorem Ipsum is simply dummy text of the printing and
-                                typesetting industry. Lorem Ipsum has been the industry's
-                                standard dummy text ever since the 1500s, when an
-                                unknown printer took a galley of type and scrambled it to
-                                make a type specimen book.
-                            </p>
-                            <div class="testimonial-content">
-                                <div class="testimonial-profile">
-                                    <h3 class="name">Advisor</h3>
-                                    <span class="post">Business Operations</span>
+                        </ng-template>
+                        <ng-template carouselSlide>
+                            <div class="testimonial-style3">
+                                <div class="image">
+                                    <img src="assets/images/testimonial/allumni-mizan.png" alt="">
+                                </div>
+                                <h5 class="title">Md. Mizanur Rahman Akhand</h5>
+                                <p class="description">
+                                    Lorem Ipsum is simply dummy text of the printing and
+                                    typesetting industry. Lorem Ipsum has been the industry's
+                                    standard dummy text ever since the 1500s, when an
+                                    unknown printer took a galley of type and scrambled it to
+                                    make a type specimen book.
+                                </p>
+                                <div class="testimonial-content">
+                                    <div class="testimonial-profile">
+                                        <h3 class="name">Advisor</h3>
+                                        <span class="post">Business Operations</span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-
-                    </div>
+                        </ng-template>
+                    </owl-carousel-o>
                 </div>
             </div>
         </div>
     </div>
     <!-- Testimonial End -->
     <!-- Partner Start -->
-    <div id="rs-partner" class="rs-partner pt-70 pb-10">
+    <div id="partner" class="rs-partner pt-70 pb-10">
         <div class="container">
             <div class="sec-title2 mb-50 text-center">
                 <h2 class="title">Academic & Strategic Partners</h2>
             </div>
-            <div class="rs-carousel owl-carousel" data-loop="true" data-items="5" data-margin="80" data-autoplay="true"
-                data-autoplay-timeout="5000" data-smart-speed="2000" data-dots="false" data-nav="false"
-                data-nav-speed="false" data-mobile-device="2" data-mobile-device-nav="false"
-                data-mobile-device-dots="false" data-ipad-device="4" data-ipad-device-nav="false"
-                data-ipad-device-dots="false" data-md-device="5" data-md-device-nav="false" data-md-device-dots="false">
-                <div class="partner-item">
-                    <a href="#"><img src="assets/images/partner/partner1.jpg" alt="Partner Image"></a>
-                </div>
-                <div class="partner-item">
-                    <a href="#"><img src="assets/images/partner/partner2.jpg" alt="Partner Image"></a>
-                </div>
-                <div class="partner-item">
-                    <a href="#"><img src="assets/images/partner/partner3.jpg" alt="Partner Image"></a>
-                </div>
-                <div class="partner-item">
-                    <a href="#"><img src="assets/images/partner/partner4.jpg" alt="Partner Image"></a>
-                </div>
-                <div class="partner-item">
-                    <a href="#"><img src="assets/images/partner/partner5.jpg" alt="Partner Image"></a>
-                </div>
-            </div>
+            <owl-carousel-o class="partner" [options]="customOptionsPartners" #owlCar>
+                <ng-template carouselSlide>
+                    <div class="partner-item">
+                        <a href="#"><img src="assets/images/partner/partner1.jpg" alt="Partner Image"></a>
+                    </div>
+                </ng-template>
+                <ng-template carouselSlide>
+                    <div class="partner-item">
+                        <a href="#"><img src="assets/images/partner/partner2.jpg" alt="Partner Image"></a>
+                    </div>
+                </ng-template>
+                <ng-template carouselSlide>
+                    <div class="partner-item">
+                        <a href="#"><img src="assets/images/partner/partner3.jpg" alt="Partner Image"></a>
+                    </div>
+                </ng-template>
+                <ng-template carouselSlide>
+                    <div class="partner-item">
+                        <a href="#"><img src="assets/images/partner/partner4.jpg" alt="Partner Image"></a>
+                    </div>
+                </ng-template>
+                <ng-template carouselSlide>
+                    <div class="partner-item">
+                        <a href="#"><img src="assets/images/partner/partner5.jpg" alt="Partner Image"></a>
+                    </div>
+                </ng-template>
+            </owl-carousel-o>
+
         </div>
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
     <!-- Footer Start -->
     <footer id="rs-footer" class="bg3 rs-footer pt-50">
         <div class="container">
@@ -1052,6 +1053,4 @@
             </div>
         </div>
     </div>
-
-
 </body>
