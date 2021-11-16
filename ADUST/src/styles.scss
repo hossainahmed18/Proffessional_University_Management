@@ -15,9 +15,9 @@
     background-color: rgba(255,255,255,.5);
 }
 
-.rs-carousel .owl-item{
+.team-item{
     width: 350px!important;
-    margin-right: 30px !important;
+    margin-right: 5px !important;
 }
 .partner .owl-item{
     width: 158px !important;
@@ -65,5 +65,17 @@
     right: -60px;
 }
 
-
- 
+.mycarousel-body {
+    
+        width: 100%;
+        -webkit-tap-highlight-color: transparent;
+        position: relative;
+        z-index: 1;
+    
+}
+.par{
+    overflow: hidden;
+height: 100%;
+cursor: grab;
+width: 1480px;
+}

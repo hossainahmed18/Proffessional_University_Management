@@ -87,17 +87,25 @@
                                 <a class="rs-menu-toggle"><i class="fa fa-bars"></i>Menu</a>
                                 <nav class="rs-menu">
                                     <ul class="nav-menu">
-                                        <li class="active"> <a asp-action="Index" asp-controller="Home">Home</a></li>
-                                        <li> <a asp-action="Index" asp-controller="About">About</a></li>
-                                        <li> <a asp-action="Index" asp-controller="Authority">Authority</a>
+                                        <li class="active"> <a asp-action="Index" [routerLink] = "['/',]">Home</a></li>
+                                        <li class="menu-item-has-children">
+                                            <a [routerLink] = "['/about',]">About</a>
+                                            <ul class="sub-menu">
+                                                <li> <a asp-action="Index" [routerLink] = "['/about',]">About ADUST</a></li>
+                                                <li><a asp-action="Syndicate" [routerLink] = "['/about/syndicate',]">Syndicate</a></li>
+                                                <li><a>Academic Council</a></li>
+                                                <li><a>Administration</a></li>
+                                            </ul>
                                         </li>
-                                        <li> <a asp-action="Index" asp-controller="Admission">Admission</a>
+                                        <li> <a >Authority</a>
                                         </li>
-                                        <li> <a asp-action="Index" asp-controller="Academics">Academics</a>
+                                        <li> <a >Admission</a>
                                         </li>
-                                        <li> <a asp-action="Index" asp-controller="Research">Research</a></li>
-                                        <li> <a asp-action="Index" asp-controller="Media">Media</a></li>
-                                        <li> <a asp-action="Index" asp-controller="Contact">Contact us</a>
+                                        <li> <a>Academics</a>
+                                        </li>
+                                        <li> <a >Research</a></li>
+                                        <li> <a >Media</a></li>
+                                        <li> <<a [routerLink] = "['/contact',]" >Contact us</a>
                                         </li>
                                     </ul>
                                 </nav>
@@ -436,9 +444,10 @@
     <!-- Team Start -->
     <div id="rs-team" class="rs-team sec-color sec-spacer">
         <div class="container">
-            <div class="row">
+            <div class="row rs-vertical-middle">
+                <div class="col-lg-4 col-md-12">
                     <div class="sec-title mb-30">
-                        <h2 >TOP MANAGEMENT</h2>
+                        <h2>TOP MANAGEMENT</h2>
                         <p>Fusce sem dolor inter in efficitur faucibus.</p>
                     </div>
                     <p class="mobile-mb-50">
@@ -446,60 +455,154 @@
                         and demoralized
                         .
                     </p>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <owl-carousel-o class="rs-carousel" [options]="customOptionsTopManage" #owlCar>
-                        <ng-template carouselSlide>
-                            <div class="team-item">
-                                <div class="team-img">
-                                    <img src="assets/images/management/chairman.jpg" alt="team Image" />
-                                    <div class="normal-text">
-                                        <h3 class="team-name">LIAKAT ALI SIKDAR</h3>
-                                        <span class="subtitle">Chairman</span>
+                </div>
+                <div class="col-lg-8 col-md-12">
+                    <div class="rs-carousel owl-carousel rs-navigation-2 owl-theme owl-loaded" style="padding-bottom: 30px !important;" >
+                        <div class="owl-stage-outer">
+                            <div class="owl-stage"
+                                style="transform: translate3d(-1140px, 0px, 0px); transition: all 0s ease 0s; width: 2280px;">
+                                <div class="owl-item cloned" style="width: 350px; margin-right: 30px;">
+                                    <div class="team-item">
+                                        <div class="team-img">
+                                            <img src="assets/images/management/chairman.jpg" alt="team Image">
+                                            <div class="normal-text">
+                                                <h3 class="team-name">LIAKAT ALI SIKDAR</h3>
+                                                <span class="subtitle">Chairman</span>
+                                            </div>
+                                        </div>
+                                        <div class="team-content">
+                                            <div class="overly-border"></div>
+                                            <div class="display-table">
+                                                <div class="display-table-cell">
+                                                    <h3 class="team-name"><a href="teachers-single.html">LIAKAT ALI
+                                                            SIKDAR</a></h3>
+                                                    <span class="team-title">Chairman</span>
+                                                    <p class="team-desc">Entrusted with planning, implementation and
+                                                        evaluation.</p>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="team-content">
-                                    <div class="overly-border"></div>
-                                    <div class="display-table">
-                                        <div class="display-table-cell">
-                                            <h3 class="team-name"><a href="teachers-single.html">LIAKAT ALI SIKDAR</a>
-                                            </h3>
-                                            <span class="team-title">Chairman</span>
-                                            <p class="team-desc">Entrusted with planning, implementation and evaluation.
-                                            </p>
+                                <div class="owl-item cloned" style="width: 350px; margin-right: 30px;">
+                                    <div class="team-item">
+                                        <div class="team-img">
+                                            <img src="assets/images/management/vc.jpg" alt="team Image">
+                                            <div class="normal-text">
+                                                <h3 class="team-name">DR. RAFIQUE U AHMED</h3>
+                                                <span class="subtitle">Vice Chancellor</span>
+                                            </div>
+                                        </div>
+                                        <div class="team-content">
+                                            <div class="overly-border"></div>
+                                            <div class="display-table">
+                                                <div class="display-table-cell">
+                                                    <h3 class="team-name"><a href="teachers-single.html">DR. RAFIQUE U
+                                                            AHMED</a></h3>
+                                                    <span class="team-title">Vice Chancellor</span>
+                                                    <p class="team-desc">Entrusted with planning, implementation and
+                                                        evaluation.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="owl-item" style="width: 350px; margin-right: 30px;">
+                                    <div class="team-item">
+                                        <div class="team-img">
+                                            <img src="assets/images/management/chairman.jpg" alt="team Image">
+                                            <div class="normal-text">
+                                                <h3 class="team-name">LIAKAT ALI SIKDAR</h3>
+                                                <span class="subtitle">Chairman</span>
+                                            </div>
+                                        </div>
+                                        <div class="team-content">
+                                            <div class="overly-border"></div>
+                                            <div class="display-table">
+                                                <div class="display-table-cell">
+                                                    <h3 class="team-name"><a href="teachers-single.html">LIAKAT ALI
+                                                            SIKDAR</a></h3>
+                                                    <span class="team-title">Chairman</span>
+                                                    <p class="team-desc">Entrusted with planning, implementation and
+                                                        evaluation.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="owl-item" style="width: 350px; margin-right: 30px;">
+                                    <div class="team-item">
+                                        <div class="team-img">
+                                            <img src="assets/images/management/vc.jpg" alt="team Image">
+                                            <div class="normal-text">
+                                                <h3 class="team-name">DR. RAFIQUE U AHMED</h3>
+                                                <span class="subtitle">Vice Chancellor</span>
+                                            </div>
+                                        </div>
+                                        <div class="team-content">
+                                            <div class="overly-border"></div>
+                                            <div class="display-table">
+                                                <div class="display-table-cell">
+                                                    <h3 class="team-name"><a href="teachers-single.html">DR. RAFIQUE U
+                                                            AHMED</a></h3>
+                                                    <span class="team-title">Vice Chancellor</span>
+                                                    <p class="team-desc">Entrusted with planning, implementation and
+                                                        evaluation.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="owl-item cloned" style="width: 350px; margin-right: 30px;">
+                                    <div class="team-item">
+                                        <div class="team-img">
+                                            <img src="assets/images/management/chairman.jpg" alt="team Image">
+                                            <div class="normal-text">
+                                                <h3 class="team-name">LIAKAT ALI SIKDAR</h3>
+                                                <span class="subtitle">Chairman</span>
+                                            </div>
+                                        </div>
+                                        <div class="team-content">
+                                            <div class="overly-border"></div>
+                                            <div class="display-table">
+                                                <div class="display-table-cell">
+                                                    <h3 class="team-name"><a href="teachers-single.html">LIAKAT ALI
+                                                            SIKDAR</a></h3>
+                                                    <span class="team-title">Chairman</span>
+                                                    <p class="team-desc">Entrusted with planning, implementation and
+                                                        evaluation.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="owl-item cloned" style="width: 350px; margin-right: 30px;">
+                                    <div class="team-item">
+                                        <div class="team-img">
+                                            <img src="assets/images/management/vc.jpg" alt="team Image">
+                                            <div class="normal-text">
+                                                <h3 class="team-name">DR. RAFIQUE U AHMED</h3>
+                                                <span class="subtitle">Vice Chancellor</span>
+                                            </div>
+                                        </div>
+                                        <div class="team-content">
+                                            <div class="overly-border"></div>
+                                            <div class="display-table">
+                                                <div class="display-table-cell">
+                                                    <h3 class="team-name"><a href="teachers-single.html">DR. RAFIQUE U
+                                                            AHMED</a></h3>
+                                                    <span class="team-title">Vice Chancellor</span>
+                                                    <p class="team-desc">Entrusted with planning, implementation and
+                                                        evaluation.</p>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </ng-template>
-                        <ng-template carouselSlide>
-                            <div class="team-item">
-                                <div class="team-img">
-                                    <img src="assets/images/management/vc.jpg" alt="team Image" />
-                                    <div class="normal-text">
-                                        <h3 class="team-name">DR. RAFIQUE U AHMED</h3>
-                                        <span class="subtitle">Vice Chancellor</span>
-                                    </div>
-                                </div>
-                                <div class="team-content">
-                                    <div class="overly-border"></div>
-                                    <div class="display-table">
-                                        <div class="display-table-cell">
-                                            <h3 class="team-name"><a href="teachers-single.html">DR. RAFIQUE U AHMED</a>
-                                            </h3>
-                                            <span class="team-title">Vice Chancellor</span>
-                                            <p class="team-desc">Entrusted with planning, implementation and evaluation.
-                                            </p>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </ng-template>  
-                          
-                    </owl-carousel-o>
-
+                        </div>
+                        
+                    </div>
                     <div class="owl-carousel rs-navigation-2" style="display: block !important;">
                         <div class="owl-controls">
                             <div class="owl-nav">
@@ -509,9 +612,17 @@
                         </div>
                     </div>
                 </div>
+
+
+               
             </div>
         </div>
+
+
+
+
     </div>
+
     <!-- Team End -->
     <!-- Counter Up Section Start-->
     <div class="rs-counter pt-100 pb-70 bg-achievements" id="vvvvvvvvvvvvv">
@@ -559,13 +670,20 @@
                 </div>
             </div>
             <div class="gridFilter">
-                <button [ngClass]="{'active': selectedCourse === 'all'}" (click)="this.selectedCourse = 'all'" data-filter="*" >ALL</button>
-                <button data-filter=".filter1" [ngClass]="{'active': selectedCourse === 'ENG-TECH'}" (click)="this.selectedCourse = 'ENG-TECH'">ENGINEERING & TECHNOLOGY</button>
-                <button data-filter=".filter2" [ngClass]="{'active': selectedCourse === 'BUSINESS'}" (click)="this.selectedCourse = 'BUSINESS'" >BUSINESS</button>
-                <button data-filter=".filter3" [ngClass]="{'active': selectedCourse === 'ARTS'}" (click)="this.selectedCourse = 'ARTS'">ARTS & SOCIAL SCIENCES</button>
-                <button data-filter=".filter3" [ngClass]="{'active': selectedCourse === 'HEALTH'}" (click)="this.selectedCourse = 'HEALTH'">HEALTH SCIENCES</button>
-                <button data-filter=".filter3" [ngClass]="{'active': selectedCourse === 'LAW'}" (click)="this.selectedCourse = 'LAW'">LAW</button>
-                <button data-filter=".filter3" [ngClass]="{'active': selectedCourse === 'EVENING'}" (click)="this.selectedCourse = 'EVENING'">EVENING/DIPLOMA</button>
+                <button [ngClass]="{'active': selectedCourse === 'all'}" (click)="this.selectedCourse = 'all'"
+                    data-filter="*">ALL</button>
+                <button data-filter=".filter1" [ngClass]="{'active': selectedCourse === 'ENG-TECH'}"
+                    (click)="this.selectedCourse = 'ENG-TECH'">ENGINEERING & TECHNOLOGY</button>
+                <button data-filter=".filter2" [ngClass]="{'active': selectedCourse === 'BUSINESS'}"
+                    (click)="this.selectedCourse = 'BUSINESS'">BUSINESS</button>
+                <button data-filter=".filter3" [ngClass]="{'active': selectedCourse === 'ARTS'}"
+                    (click)="this.selectedCourse = 'ARTS'">ARTS & SOCIAL SCIENCES</button>
+                <button data-filter=".filter3" [ngClass]="{'active': selectedCourse === 'HEALTH'}"
+                    (click)="this.selectedCourse = 'HEALTH'">HEALTH SCIENCES</button>
+                <button data-filter=".filter3" [ngClass]="{'active': selectedCourse === 'LAW'}"
+                    (click)="this.selectedCourse = 'LAW'">LAW</button>
+                <button data-filter=".filter3" [ngClass]="{'active': selectedCourse === 'EVENING'}"
+                    (click)="this.selectedCourse = 'EVENING'">EVENING/DIPLOMA</button>
             </div>
             <div class="row grid">
                 <ng-container *ngIf="selectedCourse == 'all' ||selectedCourse == 'ENG-TECH'">
@@ -661,7 +779,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                 </ng-container>
 
 
@@ -712,10 +830,10 @@
                             </div>
                         </div>
                     </div>
-    
-    
+
+
                 </ng-container>
-               
+
 
 
             </div>
@@ -854,7 +972,7 @@
                                 </div>
                             </div>
                         </ng-template>
-                       
+
                     </owl-carousel-o>
                 </div>
             </div>

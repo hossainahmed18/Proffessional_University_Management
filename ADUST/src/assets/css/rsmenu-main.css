@@ -127,7 +127,7 @@ Version: 1.0.0
 /*  APPEARANCE SETTINGS 
 /*-----------------------------------------------------------------------------------*/
 .rs-menu a {
-    color:#bbb;
+    color:#bbb !important;
 	
 	/* Remove the blue Webkit background when element is tapped */
 	-webkit-tap-highlight-color:rgba(0,0,0,0);

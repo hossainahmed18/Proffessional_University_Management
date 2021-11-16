@@ -1102,7 +1102,12 @@ ul {
 .white-color {
     color: #fff !important;
 }
-
+.syndicate {
+    background-image: url(../images/syndicate/header-banner.png);
+    background-size: cover;
+    background-position: center;
+    background-position: center top;
+}
 .rs-vertical-middle .logo-area {
     line-height: 95px;
 }
@@ -1162,6 +1167,18 @@ ul {
 
 .rs-carousel:hover .owl-controls .owl-nav > div {
     opacity: 1;
+}
+.bg7 {
+    background-image: url(../images/bg/bg7.png);
+    background-size: cover;
+    background-position: center;
+    background-position: center top;
+}
+.bg4 {
+    background-image: url(../images/about/admission-background.png);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center top;
 }
 
 .rs-navigation-2 {
@@ -1366,7 +1383,7 @@ ul {
     }
 
 .home1 .menu-area .rs-menu > ul > li > a {
-    color: white;
+    color: white !important;
 }
 
     .home1 .menu-area .rs-menu > ul > li > a:hover,
