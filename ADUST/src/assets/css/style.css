@@ -1102,12 +1102,6 @@ ul {
 .white-color {
     color: #fff !important;
 }
-.syndicate {
-    background-image: url(../images/syndicate/header-banner.png);
-    background-size: cover;
-    background-position: center;
-    background-position: center top;
-}
 .rs-vertical-middle .logo-area {
     line-height: 95px;
 }
@@ -10514,4 +10508,22 @@ ul {
 
 .acheivements {
     background-color: #051E37 !important;
+}
+.syndicate {
+    background-image: url(../images/syndicate/header-banner.png);
+    background-size: cover;
+    background-position: center;
+    background-position: center top;
+}
+.academic-council {
+    background-image: url(../images/academic-council/header-banner.png);
+    background-size: cover;
+    background-position: center;
+    background-position: center top;
+}
+.administration {
+    background-image: url(../images/administration/header-banner.png);
+    background-size: cover;
+    background-position: center;
+    background-position: center top;
 }

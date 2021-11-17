@@ -90,12 +90,12 @@
                                     <ul class="nav-menu">
                                         <li class="active"> <a asp-action="Index" [routerLink] = "['/']">Home</a></li>
                                         <li class="menu-item-has-children">
-                                            <a [routerLink] = "['/about',]">About</a>
+                                            <a [routerLink] = "['/about']">About</a>
                                             <ul class="sub-menu">
                                                 <li> <a asp-action="Index" [routerLink] = "['/about']">About ADUST</a></li>
                                                 <li><a asp-action="Syndicate" [routerLink] = "['/about/syndicate']">Syndicate</a></li>
-                                                <li><a>Academic Council</a></li>
-                                                <li><a>Administration</a></li>
+                                                <li><a [routerLink] = "['/about/academic-council']">Academic Council</a></li>
+                                                <li><a [routerLink] = "['/about/adminstration']"> Administration</a></li>
                                             </ul>
                                         </li>
                                         <li> <a >Authority</a>
@@ -106,7 +106,7 @@
                                         </li>
                                         <li> <a >Research</a></li>
                                         <li> <a >Media</a></li>
-                                        <li> <a [routerLink] = "['/contact']">Contact us</a>
+                                        <li> <a [routerLink] = "['/contact']" >Contact us</a>
                                         </li>
                                     </ul>
                                 </nav>
@@ -150,7 +150,7 @@
     <div id="rs-team-2" class="rs-team-2 team-page sec-spacer">
         <div class="container">
             <div class="row grid">
-                <div class="col-lg-3 col-md-6 col-xs-6 grid-item filter1">
+                <div class="col-lg-3 col-md-6 col-xs-6 grid-item filter1 team-margin">
                     <div class="team-item">
                         <div class="team-img">
                             <a href="#"><img src="assets/images/syndicate/Sekul-Islam.jpg" alt="Professor Dr. Md. Sekul Islam" /></a>
@@ -167,7 +167,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-xs-6 grid-item filter2">
+                <div class="col-lg-3 col-md-6 col-xs-6 grid-item filter2 team-margin">
                     <div class="team-item">
                         <div class="team-img">
                             <a href="#"><img src="assets/images/syndicate/Rafique-Treasurer.jpg" alt="Dr. Rafique Uddin Ahmed" /></a>
@@ -184,7 +184,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-xs-6 grid-item filter3">
+                <div class="col-lg-3 col-md-6 col-xs-6 grid-item filter3 team-margin">
                     <div class="team-item">
                         <div class="team-img">
                             <a href="#"><img src="assets/images/syndicate/Liakat.jpg" alt="Mr. Md. Liakat Ali Sikdar" /></a>
@@ -201,7 +201,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-xs-6 grid-item filter4">
+                <div class="col-lg-3 col-md-6 col-xs-6 grid-item filter4 team-margin">
                     <div class="team-item">
                         <div class="team-img">
                             <a href="#"><img src="assets/images/syndicate/Ashraf-BBA.jpg" alt="Professor Dr. Md. Ashraf Ali Khan" /></a>
@@ -218,7 +218,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-xs-6 grid-item filter1">
+                <div class="col-lg-3 col-md-6 col-xs-6 grid-item filter1 team-margin">
                     <div class="team-item">
                         <div class="team-img">
                             <a href="#"><img src="assets/images/syndicate/zakir.png" alt="Mr. A.K.M Jakir Hossain Bhuiyan" /></a>
@@ -235,7 +235,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-xs-6 grid-item filter2">
+                <div class="col-lg-3 col-md-6 col-xs-6 grid-item filter2 team-margin">
                     <div class="team-item">
                         <div class="team-img">
                             <a href="#"><img src="assets/images/syndicate/sayed.png" alt="Mr. Sayed Mohammad Hemayet Hossain" /></a>
@@ -252,7 +252,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-xs-6 grid-item filter3">
+                <div class="col-lg-3 col-md-6 col-xs-6 grid-item filter3 team-margin">
                     <div class="team-item">
                         <div class="team-img">
                             <a href="#"><img src="assets/images/syndicate/golam.png" alt="Mr. Golam Sarwar Kabir" /></a>
@@ -269,7 +269,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-xs-6 grid-item filter4">
+                <div class="col-lg-3 col-md-6 col-xs-6 grid-item filter4 team-margin">
                     <div class="team-item">
                         <div class="team-img">
                             <a href="#"><img src="assets/images/syndicate/ariful.png" alt="Mr. Ariful Bari Mojumder" /></a>
@@ -286,7 +286,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-xs-6 grid-item filter4">
+                <div class="col-lg-3 col-md-6 col-xs-6 grid-item filter4 team-margin">
                     <div class="team-item">
                         <div class="team-img">
                             <a href="#"><img src="assets/images/syndicate/zenat.jpg" alt="Professor Dr. Zeenat Huda" /></a>
@@ -303,7 +303,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-xs-6 grid-item filter4">
+                <div class="col-lg-3 col-md-6 col-xs-6 grid-item filter4 team-margin">
                     <div class="team-item">
                         <div class="team-img">
                             <a href="#"><img src="assets/images/syndicate/Kayum.jpg" alt="Mr. Md. Abdul Kayum Sarder" /></a>

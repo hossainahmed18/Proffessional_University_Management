@@ -89,12 +89,12 @@
                                     <ul class="nav-menu">
                                         <li class="active"> <a asp-action="Index" [routerLink] = "['/']">Home</a></li>
                                         <li class="menu-item-has-children">
-                                            <a [routerLink] = "['/about',]">About</a>
+                                            <a [routerLink] = "['/about']">About</a>
                                             <ul class="sub-menu">
                                                 <li> <a asp-action="Index" [routerLink] = "['/about']">About ADUST</a></li>
                                                 <li><a asp-action="Syndicate" [routerLink] = "['/about/syndicate']">Syndicate</a></li>
-                                                <li><a>Academic Council</a></li>
-                                                <li><a>Administration</a></li>
+                                                <li><a [routerLink] = "['/about/academic-council']">Academic Council</a></li>
+                                                <li><a [routerLink] = "['/about/adminstration']"> Administration</a></li>
                                             </ul>
                                         </li>
                                         <li> <a >Authority</a>
