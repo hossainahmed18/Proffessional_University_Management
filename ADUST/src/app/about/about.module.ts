@@ -6,6 +6,7 @@ import { AboutComponent } from './about.component';
 import { SyndicateComponent } from './syndicate/syndicate.component';
 import { AcademicCouncilComponent } from './academic-council/academic-council.component';
 import { AdminstrationComponent } from './adminstration/adminstration.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { AdminstrationComponent } from './adminstration/adminstration.component'
   ],
   imports: [
     CommonModule,
-    AboutRoutingModule
+    AboutRoutingModule,
+    SharedModule
   ]
 })
 export class AboutModule { }

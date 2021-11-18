@@ -315,64 +315,30 @@
     <!-- Latest News Start -->
     <div id="rs-latest-news-style7" class="rs-latest-news-style7 sec-spacer">
         <div class="container">
+            
+
             <div class="row">
                 <div class="col-lg-6 md-pb-50">
                     <h2 class="uppercase title pb-50 md-pb-30">LATEST EVENTS</h2>
                     <div class="rs-latest-list">
                         <div class="latest-wrap">
-                            <div class="news-list-block">
-                                <div class="news-list-item mb-40">
+                            <div *ngIf="loadingEvents == 1" class="d-flex justify-content-center pb-5">
+                                <div class="spinner-grow text-primary" role="status">
+                                    <span class="sr-only">Loading...</span>
+                                  </div>
+                            </div>
+                            <div *ngIf="loadingEvents == 2" class="news-list-block">
+                                <div *ngFor="let event of allEvents" class="news-list-item mb-40">
                                     <div class="news-img">
                                         <img src="assets/images/events/event1.jpg" alt="">
                                     </div>
                                     <div class="news-content">
                                         <div class="news-date">
-                                            <span>June 21, 2021</span>
+                                            <span>{{event.date.monthFull}} {{event.date.day}}, {{event.date.year}}</span>
                                         </div>
                                         <h4 class="news-title">
                                             <a href="#">
-                                                Webinar on Academia & Industry:
-                                                “Career Opportunities and Challenges
-                                                in IT Industry During COVID-19
-                                            </a>
-                                        </h4>
-                                        <div class="news-btn">
-                                            <a class="readon2 transparent" href="#"> Read More</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="news-list-item mb-40">
-                                    <div class="news-img">
-                                        <img src="assets/images/events/event2.jpg" alt="">
-                                    </div>
-                                    <div class="news-content">
-                                        <div class="news-date">
-                                            <span>June 21, 2021</span>
-                                        </div>
-                                        <h4 class="news-title">
-                                            <a href="#">
-                                                Webinar: Agribusiness
-                                                Education in Bangladesh:
-                                                Prospects and Challenges
-                                            </a>
-                                        </h4>
-                                        <div class="news-btn">
-                                            <a class="readon2 transparent" href="#"> Read More</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="news-list-item">
-                                    <div class="news-img">
-                                        <img src="assets/images/events/event3.jpg" alt="">
-                                    </div>
-                                    <div class="news-content">
-                                        <div class="news-date">
-                                            <span>August 15, 2021</span>
-                                        </div>
-                                        <h4 class="news-title">
-                                            <a href="#">
-                                                ১৫ আগস্ট জাতীয় শোক দিবস উপলক্ষে
-                                                আলোচনা সভা
+                                               {{event.title}}
                                             </a>
                                         </h4>
                                         <div class="news-btn">
@@ -387,54 +353,27 @@
                 <div class="col-lg-6">
                     <h2 class="uppercase title pb-50 md-pb-30">NOTICE BOARD</h2>
                     <div class="rs-latest-list">
-                        <div class="event-item-new mb-50">
+                        <div *ngIf="loadingNotices == 1" class="d-flex justify-content-center pb-5">
+                            <div class="spinner-grow text-primary" role="status">
+                                <span class="sr-only">Loading...</span>
+                              </div>
+                        </div>
+
+                        <div class="event-item-new mb-50" *ngFor="let notice of allNotices">
                             <div class="event-date">
                                 <div class="vertical-align">
-                                    <span class="day">05</span>
-                                    <span class="month">Sep</span>
+                                    <span class="day">{{notice.date.day}}</span>
+                                    <span class="month">{{notice.date.monthShort}}</span>
                                 </div>
                             </div>
                             <div class="event-des">
                                 <h4 class="title">
-                                    <a href="#">Eshkool Gala Day For Kids</a>
+                                    <a href="#">{{notice.title}}</a>
                                 </h4>
-                                <p>Event Description. A party is a gathering of people who have been invited by a host
-                                    for the purposes of… </p>
-
+                                <p>{{notice.description.slice(0,100)}}</p>
                             </div>
                         </div>
-                        <div class="event-item-new mb-50">
-                            <div class="event-date">
-                                <div class="vertical-align">
-                                    <span class="day">10</span>
-                                    <span class="month">Aug</span>
-                                </div>
-                            </div>
-                            <div class="event-des">
-                                <h4 class="title">
-                                    <a href="#">Kids Study Tour 2020.</a>
-                                </h4>
-                                <p>Event Description. A party is a gathering of people who have been invited by a host
-                                    for the purposes of… </p>
-
-                            </div>
-                        </div>
-                        <div class="event-item-new mb-10">
-                            <div class="event-date">
-                                <div class="vertical-align">
-                                    <span class="day">05</span>
-                                    <span class="month">Aug</span>
-                                </div>
-                            </div>
-                            <div class="event-des">
-                                <h4 class="title">
-                                    <a href="#">Kids Drawing Content</a>
-                                </h4>
-                                <p>Event Description. A party is a gathering of people who have been invited by a host
-                                    for the purposes of… </p>
-
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
             </div>
@@ -670,173 +609,66 @@
                 </div>
             </div>
             <div class="gridFilter">
-                <button [ngClass]="{'active': selectedCourse === 'all'}" (click)="this.selectedCourse = 'all'"
+                <button [ngClass]="{'active': selectedCourse.title === 'all'}" (click)="this.selectedCourse = {title:'all'}"
                     data-filter="*">ALL</button>
-                <button data-filter=".filter1" [ngClass]="{'active': selectedCourse === 'ENG-TECH'}"
-                    (click)="this.selectedCourse = 'ENG-TECH'">ENGINEERING & TECHNOLOGY</button>
-                <button data-filter=".filter2" [ngClass]="{'active': selectedCourse === 'BUSINESS'}"
-                    (click)="this.selectedCourse = 'BUSINESS'">BUSINESS</button>
-                <button data-filter=".filter3" [ngClass]="{'active': selectedCourse === 'ARTS'}"
-                    (click)="this.selectedCourse = 'ARTS'">ARTS & SOCIAL SCIENCES</button>
-                <button data-filter=".filter3" [ngClass]="{'active': selectedCourse === 'HEALTH'}"
-                    (click)="this.selectedCourse = 'HEALTH'">HEALTH SCIENCES</button>
-                <button data-filter=".filter3" [ngClass]="{'active': selectedCourse === 'LAW'}"
-                    (click)="this.selectedCourse = 'LAW'">LAW</button>
-                <button data-filter=".filter3" [ngClass]="{'active': selectedCourse === 'EVENING'}"
-                    (click)="this.selectedCourse = 'EVENING'">EVENING/DIPLOMA</button>
-            </div>
-            <div class="row grid">
-                <ng-container *ngIf="selectedCourse == 'all' ||selectedCourse == 'ENG-TECH'">
-                    <div class="col-lg-4 col-md-6 grid-item filter1 filter3">
-                        <div class="cource-item">
-                            <div class="cource-img">
-                                <img src="assets/images/courses/eee.jpg" alt="" />
-                                <a class="image-link" href="courses-details.html" title="University Tour 2018">
-                                    <i class="fa fa-link"></i>
-                                </a>
-                            </div>
-                            <div class="course-body">
-                                <a href="#" class="course-category">ENGINEERING & TECHNOLOGY</a>
-                                <h4 class="course-title"><a href="courses-details.html">B.Sc. in EEE</a></h4>
-                                <div class="course-desc">
-                                    <p>
-                                        The curriculum of all its programs intend to equip students with
-                                        knowledge which not only deepen their understanding of
-                                        fundamental science and its application in various engineering
-                                        fields of Power, Electronics, Communication and Computing...
-                                    </p>
-                                </div>
-                                <a href="#" class="cource-btn">Apply Now</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 grid-item filter1">
-                        <div class="cource-item">
-                            <div class="cource-img">
-                                <img src="assets/images/courses/cse.jpg" alt="" />
-                                <a class="image-link" href="courses-details.html" title="University Tour 2018">
-                                    <i class="fa fa-link"></i>
-                                </a>
-                            </div>
-                            <div class="course-body">
-                                <a href="#" class="course-category">ENGINEERING & TECHNOLOGY</a>
-                                <h4 class="course-title"><a href="courses-details.html">B.Sc. in CSE</a></h4>
-                                <div class="course-desc">
-                                    <p>
-                                        The curriculum of all its programs intend to equip students with
-                                        knowledge which not only deepen their understanding of
-                                        fundamental science and its application in various engineering
-                                        fields of Power, Electronics, Communication and Computing...
-                                    </p>
-                                </div>
-                                <a href="#" class="cource-btn">Apply Now</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 grid-item filter3">
-                        <div class="cource-item">
-                            <div class="cource-img">
-                                <img src="assets/images/courses/ETE.jpg" alt="" />
-                                <a class="image-link" href="courses-details.html" title="University Tour 2018">
-                                    <i class="fa fa-link"></i>
-                                </a>
-                            </div>
-                            <div class="course-body">
-                                <a href="#" class="course-category">ENGINEERING & TECHNOLOGY</a>
-                                <h4 class="course-title"><a href="#">B.Sc. in ETE</a></h4>
-                                <div class="course-desc">
-                                    <p>
-                                        The curriculum of all its programs intend to equip students with
-                                        knowledge which not only deepen their understanding of
-                                        fundamental science and its application in various engineering
-                                        fields of Power, Electronics, Communication and Computing...
-                                    </p>
-                                </div>
-                                <a href="#" class="cource-btn">Apply Now</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 grid-item filter3 filter4">
-                        <div class="cource-item">
-                            <div class="cource-img">
-                                <img src="assets/images/courses/csi.jpg" alt="" />
-                                <a class="image-link" href="courses-details.html" title="University Tour 2018">
-                                    <i class="fa fa-link"></i>
-                                </a>
-                            </div>
-                            <div class="course-body">
-                                <a href="#" class="course-category">ENGINEERING & TECHNOLOGY</a>
-                                <h4 class="course-title"><a href="#">B.Sc. in CSI</a></h4>
-                                <div class="course-desc">
-                                    <p>
-                                        The curriculum of all its programs intend to equip students with
-                                        knowledge which not only deepen their understanding of
-                                        fundamental science and its application in various engineering
-                                        fields of Power, Electronics, Communication and Computing...
-                                    </p>
-                                </div>
-                                <a href="#" class="cource-btn">Apply Now</a>
-                            </div>
-                        </div>
-                    </div>
-
-                </ng-container>
-
-
-                <ng-container *ngIf="selectedCourse == 'all' ||selectedCourse == 'BUSINESS'">
-                    <div class="col-lg-4 col-md-6 grid-item filter2">
-                        <div class="cource-item">
-                            <div class="cource-img">
-                                <img src="assets/images/courses/textile.jpg" alt="" />
-                                <a class="image-link" href="courses-details.html" title="University Tour 2018">
-                                    <i class="fa fa-link"></i>
-                                </a>
-                            </div>
-                            <div class="course-body">
-                                <a href="#" class="course-category">ENGINEERING & TECHNOLOGY</a>
-                                <h4 class="course-title"><a href="#">B.Sc. in Textile Engineering</a></h4>
-                                <div class="course-desc">
-                                    <p>
-                                        The curriculum of all its programs intend to equip students with
-                                        knowledge which not only deepen their understanding of
-                                        fundamental science and its application in various engineering
-                                        fields of Power, Electronics, Communication and Computing...
-                                    </p>
-                                </div>
-                                <a href="#" class="cource-btn">Apply Now</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 grid-item filter2 filter4">
-                        <div class="cource-item">
-                            <div class="cource-img">
-                                <img src="assets/images/courses/Civil.jpg" alt="" />
-                                <a class="image-link" href="courses-details.html" title="University Tour 2018">
-                                    <i class="fa fa-link"></i>
-                                </a>
-                            </div>
-                            <div class="course-body">
-                                <a href="#" class="course-category">ENGINEERING & TECHNOLOGY</a>
-                                <h4 class="course-title"><a href="#">Civil Engineering</a></h4>
-                                <div class="course-desc">
-                                    <p>
-                                        The curriculum of all its programs intend to equip students with
-                                        knowledge which not only deepen their understanding of
-                                        fundamental science and its application in various engineering
-                                        fields of Power, Electronics, Communication and Computing...
-                                    </p>
-                                </div>
-                                <a href="#" class="cource-btn">Apply Now</a>
-                            </div>
-                        </div>
-                    </div>
-
-
-                </ng-container>
-
-
+                
+                <button [ngClass]="{'active': selectedCourse.title === courseProgram.title}"
+                    (click)="this.selectedCourse = courseProgram" *ngFor="let courseProgram of coursePrograms">{{courseProgram.title}}</button>
 
             </div>
+
+            <div *ngIf="loadingCoursePrograms == 1" class="d-flex justify-content-center pb-5">
+                <div class="spinner-grow text-primary" role="status">
+                    <span class="sr-only">Loading...</span>
+                  </div>
+            </div>
+            
+            <div class="row grid" *ngIf="loadingCoursePrograms == 2" >
+                <ng-container *ngIf="selectedCourse.title =='all'">
+                    <div class="col-lg-4 col-md-6 grid-item filter1 filter3" *ngFor="let department of allDepartments" >
+                        <div class="cource-item">
+                            <div class="cource-img">
+                                <img src="data:image/png;base64,{{department.photo}}" alt="" />
+                                <a class="image-link" href="courses-details.html" title="University Tour 2018">
+                                    <i class="fa fa-link"></i>
+                                </a>
+                            </div>
+                            <div class="course-body">
+                                <h4 class="course-title"><a href="courses-details.html">{{department.title}}</a></h4>
+                                <div class="course-desc">
+                                    <p>
+                                        {{department.description}}
+                                    </p>
+                                </div>
+                                <a href="#" class="cource-btn">Apply Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+                <ng-container *ngIf="selectedCourse.title !=='all'">
+                    <div class="col-lg-4 col-md-6 grid-item filter1 filter3" *ngFor="let department of selectedCourse.departments" >
+                        <div class="cource-item">
+                            <div class="cource-img">
+                                <img src="data:image/png;base64,{{department.photo}}" alt="" />
+                                <a class="image-link" href="courses-details.html" title="University Tour 2018">
+                                    <i class="fa fa-link"></i>
+                                </a>
+                            </div>
+                            <div class="course-body">
+                                <h4 class="course-title"><a href="courses-details.html">{{department.title}}</a></h4>
+                                <div class="course-desc">
+                                    <p>
+                                        {{department.description}}
+                                    </p>
+                                </div>
+                                <a href="#" class="cource-btn">Apply Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+
+            
         </div>
     </div>
     <!-- Courses End -->
