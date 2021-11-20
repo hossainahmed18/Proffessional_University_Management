@@ -1,5 +1,5 @@
-import { visitValue } from '@angular/compiler/src/util';
 import { Component, HostListener, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { ApiService } from '../shared/services/api.service'; 
 
@@ -24,6 +24,14 @@ export class HomeComponent implements OnInit {
   totalStudents = 900;
   totalSatisfiedClients = 3675;
   selectedCourse:any = {};
+
+  xsDeviceDots=true;
+  smDevice=2;
+  smDeviceNav=true;
+  smDeviceDots=true;
+  mdDevice=2;
+  mdDeviceNav =true;
+  mdDeviceDots=true;
 
 
   customOptionsStudents: OwlOptions = {
@@ -68,42 +76,37 @@ export class HomeComponent implements OnInit {
   }
 
   customOptionsTopManage: OwlOptions = {
-    loop: true,
-    mouseDrag: true,
-    touchDrag: false,
-    pullDrag: true,
-    dots: false,
-    navSpeed: 100,
-    navText: ['', ''],
-    autoplay: true,
-    nav: true,
+     
+    loop:  true ,
+    items: 2,
+    lazyLoad: true,
+    margin: 30,
+    //stagePadding: (stagePadding ? stagePadding : 0),
+    autoplay:  true ,
+    autoplayTimeout:  5000,
+    smartSpeed: 1200,
+    dots: true,
+    nav:  true ,
+    navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
+    navSpeed:  false,
     responsive: {
       0: {
-        items: 1,
-        loop: true,
-        nav: true,
-        
+        items:  1,
+        nav: true ,
+        dots: true 
       },
-      400: {
-        items: 2,
-        loop: true,
-        nav: true,
-      
+      768: {
+        items: 2 ,
+        nav: true ,
+        dots: true 
       },
-      740: {
-        items: 3,
-        loop: true,
-        nav: true,
-        
-      },
-      940: {
-        items: 3,
-        loop: true,
-        nav: true,
-      
+      992: {
+        items: 2 ,
+        nav: true ,
+        dots: true
       }
-    }  
-    
+    }
+
   }
 
   customOptionsPartners: OwlOptions = {
@@ -190,7 +193,7 @@ topManageSliderOffset = 2;
 topManageSliderIndex = 0;
 topManageSliderCurrentSlides:any[]=[];
 
-letf = 0;
+letf = -760;
 loadingCoursePrograms = 0 ;
 loadingEvents = 0 ;
 loadingNotices = 0 ;
@@ -235,7 +238,6 @@ allNotices:any = [];
     })
   }
 
-
   getFormateDate(dateString:string){
      return {
         day: dateString.split('T')[0].split('-')[2],
@@ -243,6 +245,16 @@ allNotices:any = [];
         monthShort: this.getMonthName(dateString.split('T')[0].split('-')[1]).split('-')[0],
         year: dateString.split('T')[0].split('-')[0]
       }
+  }
+
+  
+
+  next(){
+     if(this.letf == -1140){
+       this.letf = -760;
+     } else if(this.letf == -760){
+      this.letf = -1140;
+    }
   }
 
   getMonthName(monthString: string):string {
@@ -306,9 +318,6 @@ allNotices:any = [];
         this.addCounter();
      }
   }
-
-  
-
   addCounter(){
     
      setInterval(()=>{
