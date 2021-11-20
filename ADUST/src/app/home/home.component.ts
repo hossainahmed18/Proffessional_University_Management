@@ -87,6 +87,7 @@ export class HomeComponent implements OnInit {
     smartSpeed: 1200,
     dots: true,
     nav:  true ,
+    autoWidth: true,
     navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
     navSpeed:  false,
     responsive: {
