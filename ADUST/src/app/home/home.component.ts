@@ -25,51 +25,37 @@ export class HomeComponent implements OnInit {
   totalSatisfiedClients = 3675;
   selectedCourse:any = {};
 
-  xsDeviceDots=true;
-  smDevice=2;
-  smDeviceNav=true;
-  smDeviceDots=true;
-  mdDevice=2;
-  mdDeviceNav =true;
-  mdDeviceDots=true;
-
-
   customOptionsStudents: OwlOptions = {
     loop: true,
     mouseDrag: true,
     touchDrag: false,
     pullDrag: true,
     dots: false,
-    navSpeed: 100,
+    navSpeed: false,
     navText: ['', ''],
     autoplay: true,
     nav: true,
     items: 3,
     rewind: true,
+    margin: 30,
+    autoplayTimeout: 5000,
+    smartSpeed: 1200,
+    autoWidth: true,
     responsive: {
       0: {
         items: 1,
-        loop: true,
         nav: true,
-        rewind: true
+        dots: false
       },
-      400: {
-        items: 2,
-        loop: true,
-        nav: true,
-        rewind: true
+      768: {
+        items: 2 ,
+        nav: true ,
+        dots: false 
       },
-      740: {
-        items: 3,
-        loop: true,
-        nav: true,
-        rewind: true
-      },
-      940: {
-        items: 3,
-        loop: true,
-        nav: true,
-        rewind: true
+      992: {
+        items: 3 ,
+        nav: true ,
+        dots: false 
       }
     }
     
@@ -81,7 +67,6 @@ export class HomeComponent implements OnInit {
     items: 2,
     lazyLoad: true,
     margin: 30,
-    //stagePadding: (stagePadding ? stagePadding : 0),
     autoplay:  true ,
     autoplayTimeout:  5000,
     smartSpeed: 1200,
@@ -109,43 +94,37 @@ export class HomeComponent implements OnInit {
     }
 
   }
-
   customOptionsPartners: OwlOptions = {
     loop: true,
     mouseDrag: true,
     touchDrag: false,
     pullDrag: true,
     dots: false,
-    navSpeed: 100,
+    navSpeed: false,
     navText: ['', ''],
     autoplay: true,
-    nav: true,
+    nav: false,
     items: 5,
     rewind: true,
+    margin: 80,
+    autoplayTimeout: 5000,
+    smartSpeed: 2000,
+    autoWidth: true,
     responsive: {
       0: {
         items: 2,
-        loop: true,
-        nav: true,
-        rewind: true
+        nav: false,
+        dots: false
       },
-      400: {
-        items: 3,
-        loop: true,
-        nav: true,
-        rewind: true
+      768: {
+        items: 4,
+        nav: true ,
+        dots: false 
       },
-      740: {
+      992: {
         items: 5,
-        loop: true,
-        nav: true,
-        rewind: true
-      },
-      940: {
-        items: 5,
-        loop: true,
-        nav: true,
-        rewind: true
+        nav: false,
+        dots: false 
       }
     }
     
