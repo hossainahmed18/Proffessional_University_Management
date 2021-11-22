@@ -1,382 +1,107 @@
-
-<body class="home1" id="body">
-
-    <div class="full-width-header">
-
-        <!-- Toolbar Start -->
-        <div class="rs-toolbar">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="rs-toolbar-left">
-                            <div class="welcome-message">
-                                <i class="fa fa-bank"></i><span>Welcome to ADUST</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-8">
-                        <div class="rs-toolbar-right hidden-sm">
-                            <div class="toolbar-share-icon">
-                                <ul>
-                                    <li><a href="#">UMIS</a></li>
-                                    <li><a href="#">Payment Procedure</a></li>
-                                    <li><a href="#">Webmail</a></li>
-                                    <li><a href="#">Alumni</a></li>
-                                    <li><a href="#">Blogs</a></li>
-                                </ul>
-                            </div>
-                            <a href="#" class="apply-btn">Apply Online!</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Toolbar End -->
-        <!--Header Start-->
-        <header id="rs-header" class="rs-header">
-
-            <!-- Header Top Start -->
-            <div class="rs-header-top">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-6 col-sm-12">
-                            <div class="logo-area">
-                                <a asp-action="Index" asp-controller="Home">
-                                    <img src="assets/images/logo.png" alt="logo">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-12">
-                            <div class="header-contact">
-                                <div id="info-details" class="widget-text">
-                                    <i class="fa fa-envelope-o icon-font"></i>
-                                    <div class="info-text">
-                                        <a href="mailto:admission@adust.edu.bd">
-                                            <span>Mail Us</span>
-                                            admission@adust.edu.bd
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-12">
-                            <div class="header-contact pull-right">
-                                <div id="phone-details" class="widget-text">
-                                    <i class="fa fa-volume-control-phone icon-font"></i>
-                                    <div class="info-text">
-                                        <a href="tel:4155551234">
-                                            <span>Call Us</span>
-                                            +88 01787666575-8
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Header Top End -->
-            <!-- Menu Start -->
-            <div class="menu-area menu-sticky">
-                <div class="container">
-                    <div class="main-menu">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <!-- <div id="logo-sticky" class="text-center">
-                                    <a href="index.html"><img src="assets/images/logo.png" alt="logo"></a>
-                                </div> -->
-                                <a class="rs-menu-toggle"><i class="fa fa-bars"></i>Menu</a>
-                                <nav class="rs-menu">
-                                    <ul class="nav-menu">
-                                        <li class="active"> <a asp-action="Index" [routerLink] = "['/']">Home</a></li>
-                                        <li class="menu-item-has-children">
-                                            <a [routerLink] = "['/about']">About</a>
-                                            <ul class="sub-menu">
-                                                <li> <a asp-action="Index" [routerLink] = "['/about']">About ADUST</a></li>
-                                                <li><a asp-action="Syndicate" [routerLink] = "['/about/syndicate']">Syndicate</a></li>
-                                                <li><a [routerLink] = "['/about/academic-council']">Academic Council</a></li>
-                                                <li><a [routerLink] = "['/about/adminstration']"> Administration</a></li>
-                                            </ul>
-                                        </li>
-                                        <li> <a >Authority</a>
-                                        </li>
-                                        <li> <a >Admission</a>
-                                        </li>
-                                        <li> <a>Academics</a>
-                                        </li>
-                                        <li> <a >Research</a></li>
-                                        <li> <a >Media</a></li>
-                                        <li> <a [routerLink] = "['/contact']" >Contact us</a>
-                                        </li>
-                                    </ul>
-                                </nav>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Menu End -->
-        </header>
-        <!--Header End-->
-
-    </div>
-
-    <div class="rs-breadcrumbs administration breadcrumbs-overlay">
-        <div class="breadcrumbs-inner">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        <h1 class="page-title">ADMINISTRATION</h1>
-                        <ul>
-                            <li>
-                                <a class="active" asp-action="Index" asp-controller="Home">HOME</a>
-                            </li>
-                            <li>ADMINISTRATION</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Breadcrumbs End -->
-    <!-- Team Start -->
-    <div id="rs-team-2" class="rs-team-2 team-page sec-spacer">
+<app-header></app-header>
+<div class="rs-breadcrumbs administration breadcrumbs-overlay">
+    <div class="breadcrumbs-inner">
         <div class="container">
-            <div class="row grid">
-                <div class="col-lg-3 col-md-6 team-margin col-xs-6 grid-item filter1">
-                    <div class="team-item">
-                        <div class="team-img">
-                            <a href="#"><img src="assets/images/administration/VC-Adust-300x300.jpg" alt="Professor Dr. Md. Sekul Islam" /></a>
-                            <div class="social-icon">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-google-plus"></i></a>
-                                <a href="#"><i class="fa fa-linkedin"></i></a>
-                            </div>
-                        </div>
-                        <div class="team-body">
-                            <a href="teachers-single.html"><h3 class="name">Professor Dr. Md. Sekul Islam</h3></a>
-                            <span class="designation">Vice Chancellor</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 team-margin col-xs-6 grid-item filter2">
-                    <div class="team-item">
-                        <div class="team-img">
-                            <a href="#"><img src="assets/images/administration/AKM_DELWER-10-300x300.jpg" alt="A. K. M. DELWER HUSSAIN" /></a>
-                            <div class="social-icon">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-google-plus"></i></a>
-                                <a href="#"><i class="fa fa-linkedin"></i></a>
-                            </div>
-                        </div>
-                        <div class="team-body">
-                            <a href="teachers-single.html"><h3 class="name">A. K. M. DELWER HUSSAIN</h3></a>
-                            <span class="designation">Treasurer</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 team-margin col-xs-6 grid-item filter3">
-                    <div class="team-item">
-                        <div class="team-img">
-                            <a href="#"><img src="assets/images/administration/kayum.jpg" alt="MR. MD. ABDUL KAYUM SARDER" /></a>
-                            <div class="social-icon">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-google-plus"></i></a>
-                                <a href="#"><i class="fa fa-linkedin"></i></a>
-                            </div>
-                        </div>
-                        <div class="team-body">
-                            <a href="teachers-single.html"><h3 class="name">MR. MD. ABDUL KAYUM SARDER</h3></a>
-                            <span class="designation">Registrar</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 team-margin col-xs-6 grid-item filter4">
-                    <div class="team-item">
-                        <div class="team-img">
-                            <a href="#"><img src="assets/images/administration/Kamran-Exam-Controller-300x300.jpg" alt="MR. MD. KAMRAN CHOWDHURY" /></a>
-                            <div class="social-icon">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-google-plus"></i></a>
-                                <a href="#"><i class="fa fa-linkedin"></i></a>
-                            </div>
-                        </div>
-                        <div class="team-body">
-                            <a href="teachers-single.html"><h3 class="name">MR. MD. KAMRAN CHOWDHURY</h3></a>
-                            <span class="designation">Controller of Examinations</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-
-
-
-
-
-
-   
-    <!-- Footer Start -->
-    <footer id="rs-footer" class="bg3 rs-footer pt-50">
-        <div class="container">
-            <!-- Footer Address -->
-            <div>
-                <div class="row footer-contact-desc acheivements">
-                    <div class="col-md-4">
-                        <div class="contact-inner">
-                            <i class="fa fa-map-marker"></i>
-                            <h4 class="contact-title">Address</h4>
-                            <p class="contact-desc">
-                                Plot# 209, Sector# 15 (Khantek), <br />
-                                Uttara, Dhaka-1230
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="contact-inner">
-                            <i class="fa fa-phone"></i>
-                            <h4 class="contact-title">Phone Number</h4>
-                            <p class="contact-desc">
-                                +88 01787666575, +88 01787666576,<br>
-                                +88 01787666577, +88 01787666578
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="contact-inner">
-                            <i class="fa fa-map-marker"></i>
-                            <h4 class="contact-title">Email Address</h4>
-                            <p class="contact-desc">
-                                admission@adust.edu.bd<br>
-                                info@adust.edu.bd
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Footer Top -->
-        <div class="footer-top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-3 col-md-12">
-                        <div class="about-widget">
-                            <img src="assets/images/logo-footer.png" alt="Footer Logo">
-                            <p>
-                                ADUST established in 2004 and approved by
-                                UGC & Government, is one of the pioneers
-                                among the educational institute of
-                                Bangladesh, which works as “Centre of
-                                Excellence” by ensuring the tertiary level of
-                                education at affordable price. In every year,
-                                near about 1 million students are
-                                approaching towards tertiary level of
-                                education after passing the Higher
-                                Secondary level of Education
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-12">
-                        <h5 class="footer-title">BECOME ADUSTian</h5>
-                        <ul class="sitemap-widget">
-                            <li class="active"><a href="index.html"><i class="fa fa-angle-right"
-                                        aria-hidden="true"></i>Future Students</a></li>
-                            <li><a href="about.html"><i class="fa fa-angle-right" aria-hidden="true"></i>On
-                                    Campus</a></li>
-                            <li><a href="courses.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Admission</a>
-                            </li>
-                            <li><a href="courses-details.html"><i class="fa fa-angle-right"
-                                        aria-hidden="true"></i>Tuition Fees</a></li>
-                            <li><a href="events.html"><i class="fa fa-angle-right"
-                                        aria-hidden="true"></i>Scholarships</a></li>
-                            <li><a href="events-details.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Apply
-                                    Now</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-3 col-md-12">
-                        <h5 class="footer-title">ACADEMICS</h5>
-                        <ul class="sitemap-widget">
-                            <li class="active"><a href="index.html"><i class="fa fa-angle-right"
-                                        aria-hidden="true"></i>Academic Calendar</a></li>
-                            <li><a href="about.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Academic
-                                    Regulations</a></li>
-                            <li><a href="courses.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Faculty of
-                                    Engineering</a></li>
-                            <li><a href="courses-details.html"><i class="fa fa-angle-right"
-                                        aria-hidden="true"></i>Faculty of Business Administration</a></li>
-                            <li><a href="events.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Faculty
-                                    of Arts & Social Sciences</a></li>
-                            <li><a href="events-details.html"><i class="fa fa-angle-right"
-                                        aria-hidden="true"></i>Faculty of Health Sciences</a></li>
-                            <li><a href="events-details.html"><i class="fa fa-angle-right"
-                                        aria-hidden="true"></i>Faculty of Law</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-3 col-md-12">
-                        <h5 class="footer-title">NEWSLETTER</h5>
-                        <p>Sign Up to Our Newsletter to Get Latest Updates &amp; Services</p>
-                        <form class="news-form">
-                            <input type="text" class="form-input" placeholder="Enter Your Email">
-                            <button type="submit" class="form-button"><i class="fa fa-arrow-right"
-                                    aria-hidden="true"></i></button>
-                        </form>
-                    </div>
-                </div>
-                <div class="footer-share">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h1 class="page-title">ADMINISTRATION</h1>
                     <ul>
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
-                        <li><a href="#"><i class="fa fa-vimeo"></i></a></li>
+                        <li>
+                            <a class="active" asp-action="Index" asp-controller="Home">HOME</a>
+                        </li>
+                        <li>ADMINISTRATION</li>
                     </ul>
                 </div>
             </div>
         </div>
-
-        <!-- Footer Bottom -->
-        <div class="footer-bottom">
-            <div class="container">
-                <div class="copyright">
-                    <p>© 2021 <a asp-action="Index" asp-controller="Home"><b>ADUST</b></a>. All Rights Reserved.
-                    </p>
-                    <p>Powered by : <a href="https://hashtaggerbd.com/" target="_blank">Hashtagger BD</a></p>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- Footer End -->
-    <!-- start scrollUp  -->
-    <div id="scrollUp" (click)="GoToTop()" *ngIf="!hide">
-        <i class="fa fa-angle-up"></i>
     </div>
-
-    <!-- Search Modal Start -->
-    <div aria-hidden="true" class="modal fade search-modal" role="dialog" tabindex="-1">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true" class="fa fa-close"></span>
-        </button>
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="search-block clearfix">
-                    <form>
-                        <div class="form-group">
-                            <input class="form-control" placeholder="eg: Computer Technology" type="text">
+</div>
+<!-- Breadcrumbs End -->
+<!-- Team Start -->
+<div id="rs-team-2" class="rs-team-2 team-page sec-spacer">
+    <div class="container">
+        <div class="row grid">
+            <div class="col-lg-3 col-md-6 team-margin col-xs-6 grid-item filter1">
+                <div class="team-item">
+                    <div class="team-img">
+                        <a href="#"><img src="assets/images/administration/VC-Adust-300x300.jpg"
+                                alt="Professor Dr. Md. Sekul Islam" /></a>
+                        <div class="social-icon">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-google-plus"></i></a>
+                            <a href="#"><i class="fa fa-linkedin"></i></a>
                         </div>
-                    </form>
+                    </div>
+                    <div class="team-body">
+                        <a href="teachers-single.html">
+                            <h3 class="name">Professor Dr. Md. Sekul Islam</h3>
+                        </a>
+                        <span class="designation">Vice Chancellor</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 team-margin col-xs-6 grid-item filter2">
+                <div class="team-item">
+                    <div class="team-img">
+                        <a href="#"><img src="assets/images/administration/AKM_DELWER-10-300x300.jpg"
+                                alt="A. K. M. DELWER HUSSAIN" /></a>
+                        <div class="social-icon">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-google-plus"></i></a>
+                            <a href="#"><i class="fa fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                    <div class="team-body">
+                        <a href="teachers-single.html">
+                            <h3 class="name">A. K. M. DELWER HUSSAIN</h3>
+                        </a>
+                        <span class="designation">Treasurer</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 team-margin col-xs-6 grid-item filter3">
+                <div class="team-item">
+                    <div class="team-img">
+                        <a href="#"><img src="assets/images/administration/kayum.jpg"
+                                alt="MR. MD. ABDUL KAYUM SARDER" /></a>
+                        <div class="social-icon">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-google-plus"></i></a>
+                            <a href="#"><i class="fa fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                    <div class="team-body">
+                        <a href="teachers-single.html">
+                            <h3 class="name">MR. MD. ABDUL KAYUM SARDER</h3>
+                        </a>
+                        <span class="designation">Registrar</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 team-margin col-xs-6 grid-item filter4">
+                <div class="team-item">
+                    <div class="team-img">
+                        <a href="#"><img src="assets/images/administration/Kamran-Exam-Controller-300x300.jpg"
+                                alt="MR. MD. KAMRAN CHOWDHURY" /></a>
+                        <div class="social-icon">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-google-plus"></i></a>
+                            <a href="#"><i class="fa fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                    <div class="team-body">
+                        <a href="teachers-single.html">
+                            <h3 class="name">MR. MD. KAMRAN CHOWDHURY</h3>
+                        </a>
+                        <span class="designation">Controller of Examinations</span>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</body>
-
+</div>
+<app-footer></app-footer>
