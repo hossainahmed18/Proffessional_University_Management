@@ -28,4 +28,7 @@ export class ApiService {
   getTestimonials(){
     return this.http.get(environment.apiUrl+'/Testimonials',this.httpOptions);
   }
+  getAdminstrators(role:string){
+    return this.http.get(environment.apiUrl+`/Administrators?role=${role}`,this.httpOptions);
+  }
 }

@@ -1162,12 +1162,7 @@ ul {
 .rs-carousel:hover .owl-controls .owl-nav > div {
     opacity: 1;
 }
-.bg7 {
-    background-image: url(../images/bg/bg7.png);
-    background-size: cover;
-    background-position: center;
-    background-position: center top;
-}
+
 .bg4 {
     background-image: url(../images/about/admission-background.png);
     background-size: cover;
@@ -10509,6 +10504,12 @@ ul {
 .acheivements {
     background-color: #051E37 !important;
 }
+.bg7 {
+    background-image: url(../images/bg/bg7.png);
+    background-size: cover;
+    background-position: center;
+    background-position: center top;
+}
 .syndicate {
     background-image: url(../images/syndicate/header-banner.png);
     background-size: cover;
@@ -10522,6 +10523,37 @@ ul {
     background-position: center top;
 }
 .administration {
+    background-image: url(../images/administration/header-banner.png);
+    background-size: cover;
+    background-position: center;
+    background-position: center top;
+}
+.vice-chancellor {
+    background-image: url(../images/administration/header-banner.png);
+    background-size: cover;
+    background-position: center;
+    background-position: center top;
+}
+
+.registrar {
+    background-image: url(../images/administration/header-banner.png);
+    background-size: cover;
+    background-position: center;
+    background-position: center top;
+}
+.controller-of-examinations {
+    background-image: url(../images/administration/header-banner.png);
+    background-size: cover;
+    background-position: center;
+    background-position: center top;
+}
+.treasurer {
+    background-image: url(../images/administration/header-banner.png);
+    background-size: cover;
+    background-position: center;
+    background-position: center top;
+}
+.board-of-trustees {
     background-image: url(../images/administration/header-banner.png);
     background-size: cover;
     background-position: center;
