@@ -177,20 +177,25 @@ letf = -760;
 loadingCoursePrograms = 0 ;
 loadingEvents = 0 ;
 loadingNotices = 0 ;
+loadingTestimonials = 0;
+loadingPartners = 0;
 
 allEvents:any = [];
 allNotices:any = [];
+allPartners:any = [];
+allTestimonials:any =[];
 
   ngOnInit(): void {
     this.animteachers = 0;
     this.animcourses = 0;
     this.animSatisfiedClients = 0;
     this.animStudents = 0;
-    this.slideTopManageSlider();
 
     this.loadingCoursePrograms = 1;
     this.loadingEvents = 1;
     this.loadingNotices = 1;
+    this.loadingTestimonials = 1;
+    this.loadingPartners = 1;
 
     this.apiService.getCoursePrograms().subscribe((coursePrograms: any) => {
       this.coursePrograms = coursePrograms;
@@ -215,6 +220,14 @@ allNotices:any = [];
         return {...notice,description: notices.description ? notices.description:  "simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum" ,date: this.getFormateDate(notice.noticeDate) }
       })
       this.loadingNotices = 2;
+    })
+    this.apiService.getTestimonials().subscribe((testimonials: any) => {
+      this.allTestimonials = testimonials;
+      this.loadingTestimonials = 2;
+    })
+    this.apiService.getPartners().subscribe((partners: any) => {
+      this.allPartners = partners;
+      this.loadingPartners = 2;
     })
   }
 
@@ -316,38 +329,6 @@ allNotices:any = [];
           this.animSatisfiedClients = this.animSatisfiedClients + addAmountClients;
          }
      },80)
-  }
-
-
-
-  slideTopManageSlider(currentIndex?: number, action?:string) {
-    if (currentIndex != undefined) {
-      if(action == 'prev'){
-        if(currentIndex == 0){
-          this.topManageSliderIndex =  this.topManageSlider.length - 2;
-        }else if(currentIndex < 2){
-          this.topManageSliderIndex =  0;
-        }else{
-          this.topManageSliderIndex = currentIndex - 2;
-        }
-      }else {
-        this.topManageSliderIndex = currentIndex;
-      }
-    }
-    if ((this.topManageSlider.length - 1) - this.topManageSliderIndex < this.topManageSliderOffset) {
-      let remaining = (this.topManageSlider.length) - this.topManageSliderIndex;
-      let extra = this.topManageSliderOffset - remaining;
-      this.topManageSliderCurrentSlides = [...this.topManageSlider.slice(this.topManageSliderIndex), ...this.topManageSlider.slice(0, extra)];
-      this.topManageSliderIndex = extra;
-    } else {
-      this.topManageSliderCurrentSlides =  this.topManageSlider.slice(this.topManageSliderIndex, this.topManageSliderIndex + this.mainSliderOffset);
-      this.topManageSliderIndex = this.topManageSliderIndex + this.topManageSliderOffset;
-    }
-    
-  }
-  add(){
-    this.letf = this.letf - 350;
-
   }
   
 }

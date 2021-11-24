@@ -22,4 +22,10 @@ export class ApiService {
   getEvents(){
     return this.http.get(environment.apiUrl+'/ProgramEvents',this.httpOptions);
   }
+  getPartners(){
+    return this.http.get(environment.apiUrl+'/Partners',this.httpOptions);
+  }
+  getTestimonials(){
+    return this.http.get(environment.apiUrl+'/Testimonials',this.httpOptions);
+  }
 }

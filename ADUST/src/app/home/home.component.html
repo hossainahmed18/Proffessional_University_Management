@@ -511,77 +511,40 @@
             <h2>WHAT OUR STUDENTS SAY</h2>
             <p>Fusce sem dolor, interdum in efficitur at, faucibus nec lorem. Sed nec molestie justo.</p>
         </div>
-        <div class="row">
+
+        <div *ngIf="loadingTestimonials == 1" class="d-flex justify-content-center pb-5">
+            <div class="spinner-grow text-primary" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+
+        <div *ngIf="loadingTestimonials == 2" class="row">
             <div class="col-md-12">
                 <owl-carousel-o class="rs-carousel" [options]="customOptionsStudents" #owlCar>
-                    <ng-template carouselSlide [width]="350">
-                        <div class="testimonial-style3">
-                            <div class="image">
-                                <img src="assets/images/testimonial/allumni-salman.png" alt="">
-                            </div>
-                            <h5 class="title">Salman Hossain, PhD</h5>
-                            <p class="description">
-                                Lorem Ipsum is simply dummy text of the printing and
-                                typesetting industry. Lorem Ipsum has been the industry's
-                                standard dummy text ever since the 1500s, when an
-                                unknown printer took a galley of type and scrambled it to
-                                make a type specimen book.
-                            </p>
-                            <div class="testimonial-content">
-                                <div class="testimonial-profile">
-                                    <h3 class="name">Scientist</h3>
-                                    <span class="post">Food & Drug Administratin, USA</span>
+                    <ng-container *ngFor="let item of allTestimonials">
+                        <ng-template  carouselSlide [width]="350">
+                            <div class="testimonial-style3">
+                                <div class="image">
+                                    <img src="data:image/png;base64,{{item.photo}}" alt="">
+                                </div>
+                                <h5 class="title">{{item.name}}</h5>
+                                <p class="description">
+                                    {{item.whatSay}}.
+                                </p>
+                                <div class="testimonial-content">
+                                    <div class="testimonial-profile">
+                                        <h3 class="name">{{item.designation}}</h3>
+                                        <span class="post">{{item.company}}</span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </ng-template>
-                    <ng-template carouselSlide [width]="350">
-                        <div class="testimonial-style3">
-                            <div class="image">
-                                <img src="assets/images/testimonial/allumni-saiful.png" alt="">
-                            </div>
-                            <h5 class="title">Saifur Rahman, PhD</h5>
-                            <p class="description">
-                                Lorem Ipsum is simply dummy text of the printing and
-                                typesetting industry. Lorem Ipsum has been the industry's
-                                standard dummy text ever since the 1500s, when an
-                                unknown printer took a galley of type and scrambled it to
-                                make a type specimen book.
-                            </p>
-                            <div class="testimonial-content">
-                                <div class="testimonial-profile">
-                                    <h3 class="name">Research Fellow</h3>
-                                    <span class="post">University of Michigan, USA</span>
-                                </div>
-                            </div>
-                        </div>
-                    </ng-template>
-
-                    <ng-template carouselSlide [width]="350">
-                        <div class="testimonial-style3">
-                            <div class="image">
-                                <img src="assets/images/testimonial/allumni-mizan.png" alt="">
-                            </div>
-                            <h5 class="title">Md. Mizanur Rahman Akhand</h5>
-                            <p class="description">
-                                Lorem Ipsum is simply dummy text of the printing and
-                                typesetting industry. Lorem Ipsum has been the industry's
-                                standard dummy text ever since the 1500s, when an
-                                unknown printer took a galley of type and scrambled it to
-                                make a type specimen book.
-                            </p>
-                            <div class="testimonial-content">
-                                <div class="testimonial-profile">
-                                    <h3 class="name">Advisor</h3>
-                                    <span class="post">Business Operations</span>
-                                </div>
-                            </div>
-                        </div>
-                    </ng-template>
-
+                        </ng-template>
+                    </ng-container>
                 </owl-carousel-o>
             </div>
         </div>
+
+
     </div>
 </div>
 <!-- Testimonial End -->
@@ -591,32 +554,22 @@
         <div class="sec-title2 mb-50 text-center">
             <h2 class="title">Academic & Strategic Partners</h2>
         </div>
-        <owl-carousel-o class="partner" [options]="customOptionsPartners" #owlCar>
-            <ng-template carouselSlide [width]="158">
-                <div class="partner-item">
-                    <a href="#"><img src="assets/images/partner/partner1.jpg" alt="Partner Image"></a>
-                </div>
-            </ng-template>
-            <ng-template carouselSlide [width]="158">
-                <div class="partner-item">
-                    <a href="#"><img src="assets/images/partner/partner2.jpg" alt="Partner Image"></a>
-                </div>
-            </ng-template>
-            <ng-template carouselSlidem [width]="158">
-                <div class="partner-item">
-                    <a href="#"><img src="assets/images/partner/partner3.jpg" alt="Partner Image"></a>
-                </div>
-            </ng-template>
-            <ng-template carouselSlide [width]="158">
-                <div class="partner-item">
-                    <a href="#"><img src="assets/images/partner/partner4.jpg" alt="Partner Image"></a>
-                </div>
-            </ng-template>
-            <ng-template carouselSlide [width]="158">
-                <div class="partner-item">
-                    <a href="#"><img src="assets/images/partner/partner5.jpg" alt="Partner Image"></a>
-                </div>
-            </ng-template>
+
+        <div *ngIf="loadingPartners == 1" class="d-flex justify-content-center pb-5">
+            <div class="spinner-grow text-primary" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+
+
+        <owl-carousel-o *ngIf="loadingPartners == 2"  class="partner" [options]="customOptionsPartners" #owlCar>
+            <ng-container *ngFor="let item of allPartners">
+                <ng-template carouselSlide [width]="158">
+                    <div class="partner-item">
+                        <a href="#"><img src="data:image/png;base64,{{item.photo}}" alt="Partner Image"></a>
+                    </div>
+                </ng-template>
+            </ng-container>
         </owl-carousel-o>
     </div>
 </div>
