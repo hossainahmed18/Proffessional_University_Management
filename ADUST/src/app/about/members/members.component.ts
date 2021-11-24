@@ -1,12 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from 'src/app/shared/services/api.service';
+import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-members',
   templateUrl: './members.component.html',
   styleUrls: ['./members.component.scss']
 })
-export class MembersComponent implements OnInit {
+export class MembersComponent implements OnInit, OnDestroy {
 
   constructor(private route: ActivatedRoute, private apiService:ApiService) {}
 
@@ -14,11 +15,12 @@ export class MembersComponent implements OnInit {
   member:any = "";
   loadingMember = 0;
   allMembers:any = [];
+	routerSubscription!: Subscription;
 
 
   ngOnInit(){
     
-    this.route.paramMap.subscribe((paramMap:any) => {
+    this.routerSubscription = this.route.paramMap.subscribe((paramMap:any) => {
       if(paramMap.params.team){
         let role:any = paramMap.params.team;
         this.member = role;
@@ -30,9 +32,9 @@ export class MembersComponent implements OnInit {
         })
       }
     });
-
-
-    
+  }
+  ngOnDestroy(){
+    this.routerSubscription.unsubscribe();
   }
 
 }
