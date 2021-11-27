@@ -10559,3 +10559,9 @@ ul {
     background-position: center;
     background-position: center top;
 }
+.bg5 {
+    background-image: url(../images/bg/testimonial-bg.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center top;
+}

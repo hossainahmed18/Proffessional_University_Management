@@ -1,5 +1,4 @@
 import { Component, HostListener, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { ApiService } from '../shared/services/api.service'; 
 
@@ -175,15 +174,15 @@ topManageSliderCurrentSlides:any[]=[];
 
 letf = -760;
 loadingCoursePrograms = 0 ;
-loadingEvents = 0 ;
-loadingNotices = 0 ;
+
 loadingTestimonials = 0;
 loadingPartners = 0;
 
-allEvents:any = [];
-allNotices:any = [];
 allPartners:any = [];
 allTestimonials:any =[];
+
+loadingSliders = 0;
+sliders:any=[];
 
   ngOnInit(): void {
     this.animteachers = 0;
@@ -192,10 +191,16 @@ allTestimonials:any =[];
     this.animStudents = 0;
 
     this.loadingCoursePrograms = 1;
-    this.loadingEvents = 1;
-    this.loadingNotices = 1;
+  
     this.loadingTestimonials = 1;
     this.loadingPartners = 1;
+    this.loadingSliders = 1;
+
+    this.apiService.getCarousels(0).subscribe((data:any)=>{
+      this.sliders = data;
+      this.loadingSliders = 2;
+      console.log(this.sliders);
+    })
 
     this.apiService.getCoursePrograms().subscribe((coursePrograms: any) => {
       this.coursePrograms = coursePrograms;
@@ -207,20 +212,6 @@ allTestimonials:any =[];
       this.selectedCourse.title = 'all';
       this.loadingCoursePrograms = 2;
     })
-
-    this.apiService.getEvents().subscribe((programevents: any) => {
-      this.allEvents = programevents.map((programevent: any) =>{
-        return {...programevent, date: this.getFormateDate(programevent.eventDate) }
-      })
-      this.loadingEvents = 2;
-    })
-
-    this.apiService.getNotices().subscribe((notices: any) => {
-      this.allNotices = notices.map((notice: any) =>{
-        return {...notice,description: notices.description ? notices.description:  "simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum" ,date: this.getFormateDate(notice.noticeDate) }
-      })
-      this.loadingNotices = 2;
-    })
     this.apiService.getTestimonials().subscribe((testimonials: any) => {
       this.allTestimonials = testimonials;
       this.loadingTestimonials = 2;
@@ -231,61 +222,12 @@ allTestimonials:any =[];
     })
   }
 
-  getFormateDate(dateString:string){
-     return {
-        day: dateString.split('T')[0].split('-')[2],
-        monthFull: this.getMonthName(dateString.split('T')[0].split('-')[1]).split('-')[1],
-        monthShort: this.getMonthName(dateString.split('T')[0].split('-')[1]).split('-')[0],
-        year: dateString.split('T')[0].split('-')[0]
-      }
-  }
-
-  
-
   next(){
      if(this.letf == -1140){
        this.letf = -760;
      } else if(this.letf == -760){
       this.letf = -1140;
     }
-  }
-
-  getMonthName(monthString: string):string {
-    if (monthString == '01') {
-      return 'JAN-January'
-    }
-    else if (monthString == '02') {
-      return 'FEB-Fanuary'
-    }
-    else if (monthString == '03') {
-      return 'MAR-March'
-    }
-    else if (monthString == '04') {
-      return 'APR-April'
-    }
-    else if (monthString == '05') {
-      return 'MAY-May'
-    }
-    else if (monthString == '06') {
-      return 'JUN-June'
-    }
-    else if (monthString == '07') {
-      return 'JUL-July'
-    }
-    else if (monthString == '08') {
-      return 'AUG-August'
-    }
-    else if (monthString == '09') {
-      return 'SEP-September'
-    }
-    else if (monthString == '10') {
-      return 'OCT-October'
-    }
-    else if (monthString == '11') {
-      return 'NOV-November'
-    }
-    return 'DEC-December'
-    
   }
 
   GoToTop(){

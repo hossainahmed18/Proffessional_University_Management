@@ -1,21 +1,21 @@
 <app-header></app-header>
 <div id="rs-slider" class="slider-overlay-2">
-    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
-        <ol class="carousel-indicators">
-            <li data-target="#carouselExampleFade" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleFade" data-slide-to="1"></li>
-            <li data-target="#carouselExampleFade" data-slide-to="2"></li>
-        </ol>
+    <div *ngIf="loadingSliders == 1" class="d-flex justify-content-center pb-5" style="margin-top: 200px;">
+        <div class="spinner-grow text-primary" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <div *ngIf="loadingSliders == 2" id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+        
         <div class="carousel-inner">
-
-            <div class="carousel-item active rs-banner-section2">
-                <img src="assets/images/slider/Slider-1.jpg" alt="Slide1" />
+            <div *ngFor="let slider of sliders;index as i" class="carousel-item rs-banner-section2" [ngClass]="{'active': i==0}">
+                <img src="data:image/png;base64,{{slider.photo}}" alt="Slide1" />
                 <div class="slide-content">
                     <div class="display-table">
                         <div class="display-table-cell">
                             <div class="container text-center">
                                 <h1 class="slider-title animated bounceIn" data-animation-in="fadeInLeft"
-                                    data-animation-out="animate-out">Quality Education | Affordable Cost</h1>
+                                    data-animation-out="animate-out">{{slider.title}}</h1>
                                 <br />
                                 <a href="#" class="sl-readmore-btn mr-30" data-animation-in="lightSpeedIn"
                                     data-animation-out="animate-out">WHY ADUST</a>
@@ -33,55 +33,7 @@
                 </div>
             </div>
 
-            <div class="carousel-item rs-banner-section2">
-                <img src="assets/images/slider/slider-2.jpg" alt="Slide1" />
-                <div class="slide-content">
-                    <div class="display-table">
-                        <div class="display-table-cell">
-                            <div class="container text-center">
-                                <h1 class="slider-title" data-animation-in="fadeInUp" data-animation-out="animate-out">
-                                    Near Metro Rail Station</h1>
-                                <br />
-                                <a href="#" class="sl-readmore-btn mr-30" data-animation-in="fadeInUp"
-                                    data-animation-out="animate-out">WHY ADUST</a>
-                                <a href="#" class="sl-get-started-btn" data-animation-in="fadeInUp"
-                                    data-animation-out="animate-out">APPLY NOW</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="animate hidden-sm">
-                    <div class="circle1">
-                        <img src="assets/images/circle.png" alt="">
-                    </div>
-                </div>
-            </div>
-
-            <div class="carousel-item rs-banner-section2">
-                <img src="assets/images/slider/slider-3.jpg" alt="Slide1" />
-                <div class="slide-content">
-                    <div class="display-table">
-                        <div class="display-table-cell">
-                            <div class="container text-center">
-                                <h1 class="slider-title" data-animation-in="fadeInUp" data-animation-out="animate-out">
-                                    Permanent Campus</h1>
-                                <br />
-                                <a href="#" class="sl-readmore-btn mr-30" data-animation-in="fadeInUp"
-                                    data-animation-out="animate-out">WHY ADUST</a>
-                                <a href="#" class="sl-get-started-btn" data-animation-in="fadeInUp"
-                                    data-animation-out="animate-out">APPLY NOW</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="animate hidden-sm">
-                    <div class="circle1">
-                        <img src="assets/images/circle.png" alt="">
-                    </div>
-                </div>
-            </div>
+            
 
         </div>
         <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
@@ -191,66 +143,12 @@
 <!-- Latest News Start -->
 <div id="rs-latest-news-style7" class="rs-latest-news-style7 sec-spacer">
     <div class="container">
-
-
         <div class="row">
             <div class="col-lg-6 md-pb-50">
-                <h2 class="uppercase title pb-50 md-pb-30">LATEST EVENTS</h2>
-                <div class="rs-latest-list">
-                    <div class="latest-wrap">
-                        <div *ngIf="loadingEvents == 1" class="d-flex justify-content-center pb-5">
-                            <div class="spinner-grow text-primary" role="status">
-                                <span class="sr-only">Loading...</span>
-                            </div>
-                        </div>
-                        <div *ngIf="loadingEvents == 2" class="news-list-block">
-                            <div *ngFor="let event of allEvents" class="news-list-item mb-40">
-                                <div class="news-img">
-                                    <img src="assets/images/events/event1.jpg" alt="">
-                                </div>
-                                <div class="news-content">
-                                    <div class="news-date">
-                                        <span>{{event.date.monthFull}} {{event.date.day}}, {{event.date.year}}</span>
-                                    </div>
-                                    <h4 class="news-title">
-                                        <a href="#">
-                                            {{event.title}}
-                                        </a>
-                                    </h4>
-                                    <div class="news-btn">
-                                        <a class="readon2 transparent" href="#"> Read More</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <app-events></app-events>
             </div>
             <div class="col-lg-6">
-                <h2 class="uppercase title pb-50 md-pb-30">NOTICE BOARD</h2>
-                <div class="rs-latest-list">
-                    <div *ngIf="loadingNotices == 1" class="d-flex justify-content-center pb-5">
-                        <div class="spinner-grow text-primary" role="status">
-                            <span class="sr-only">Loading...</span>
-                        </div>
-                    </div>
-
-                    <div class="event-item-new mb-50" *ngFor="let notice of allNotices">
-                        <div class="event-date">
-                            <div class="vertical-align">
-                                <span class="day">{{notice.date.day}}</span>
-                                <span class="month">{{notice.date.monthShort}}</span>
-                            </div>
-                        </div>
-                        <div class="event-des">
-                            <h4 class="title">
-                                <a href="#">{{notice.title}}</a>
-                            </h4>
-                            <p>{{notice.description.slice(0,100)}}</p>
-                        </div>
-                    </div>
-
-                </div>
+                <app-notices></app-notices>
             </div>
         </div>
     </div>

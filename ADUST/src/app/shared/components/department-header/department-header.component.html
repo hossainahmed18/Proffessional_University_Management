@@ -30,7 +30,6 @@
     <!-- Toolbar End -->
     <!--Header Start-->
     <header id="rs-header" class="rs-header">
-
         <!-- Header Top Start -->
         <div class="rs-header-top">
             <div class="container">
@@ -62,7 +61,7 @@
                                 <div class="info-text">
                                     <a href="tel:4155551234">
                                         <span>Call Us</span>
-                                        +88 01787666575-8
+                                        +88 01787666575-78
                                     </a>
                                 </div>
                             </div>
@@ -79,47 +78,23 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <!-- <div id="logo-sticky" class="text-center">
-                                    <a href="index.html"><img src="assets/images/logo.png" alt="logo"></a>
-                                </div> -->
+                                <a href="index.html"><img src="~/images/logo.png" alt="logo"></a>
+                            </div> -->
                             <a class="rs-menu-toggle"><i class="fa fa-bars"></i>Menu</a>
                             <nav class="rs-menu">
                                 <ul class="nav-menu">
-                                    <li class="active"> <a [routerLink]="['/']">Home</a></li>
-                                    <li class="menu-item-has-children">
-                                        <a [routerLink]="['/about']">About</a>
-                                        <ul class="sub-menu">
-                                            <li><a [routerLink]="['/about']">About ADUST</a></li>
-                                            <li><a [routerLink]="['/about/members', 'syndicate' ]">Syndicate</a></li>
-                                            <li><a [routerLink]="['/about/members', 'academic-council']">Academic Council</a></li>
-                                            <li><a [routerLink]="['/about/members','administration']"> Administration</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="menu-item-has-children">
-                                        <a [routerLink]="['/authority']">Authority</a>
-                                        <ul class="sub-menu">
-                                            <li><a [routerLink]="['/authority/members', 'vice-chancellor']">Vice Chancellor</a></li>
-                                            <li><a [routerLink]="['/authority/members', 'registrar' ]">Registrar</a></li>
-                                            <li><a [routerLink]="['/authority/members', 'controller-of-examinations']">Controller of Examinations</a></li>
-                                            <li><a [routerLink]="['/authority/members','treasurer']"> Treasurer</a></li>
-                                            <li><a [routerLink]="['/authority/members','board-of-trustees']">Board of Trustees</a></li>
-                                        </ul>
-                                    </li>
-                                    <li> <a>Admission</a>
-                                    </li>
-                                
-                                    <li class="menu-item-has-children">
-                                        <a [routerLink]="['/department', departMentMenu[0].id]">Academics</a>
-                                        <ul class="sub-menu">
-                                            <li> <a *ngFor="let department of departMentMenu" [routerLink]="['/department', department.id]">{{department.name}}</a></li>
-                                        </ul>
-                                    </li>
-                                    <li> <a>Research</a></li>
-                                    <li> <a>Media</a></li>
-                                    <li> <a [routerLink]="['/contact']">Contact us</a>
-                                    </li>
+                                    <li class="active"> <a  [routerLink]="['/department', currentDepartment]">{{currentDepartment}}</a></li>
+                                    <li> <a >ABOUT US</a></li>
+                                    <li> <a >PEOPLE</a></li>
+                                    <li> <a>NEWS &amp; EVENT</a></li>
+                                    <li> <a >NOTICE</a></li>
+                                    <li> <a >Research</a></li>
+                                    <li> <a >ALUMNAS</a></li>
+                                    <li> <a >Contact</a></li>
+                                    <li> <a class="nav-link" [routerLink]="['/']"><i class="fa fa-paper-plane"></i>ADUST HOME</a></li>
                                 </ul>
                             </nav>
-
+                           
                         </div>
                     </div>
                 </div>
@@ -128,5 +103,7 @@
         <!-- Menu End -->
     </header>
     <!--Header End-->
+
 </div>
+
 
